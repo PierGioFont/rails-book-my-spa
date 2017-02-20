@@ -1,0 +1,17 @@
+.massage{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  .massage-content{
+    flex: 1 0 auto;
+  }
+  .massage-price{
+    // flex: 1 0 20%;
+    padding: 0 50px;
+  }
+  .massage-book{
+    // flex: 1 0 20%;
+
+  }
+}
