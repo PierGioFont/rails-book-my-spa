@@ -1,49 +1,90 @@
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:300,400,500,700">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="css/style.css">
 
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
 
  <!-- Your banner code -->
-    <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('/bannerbackground.jpg');">
+    <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<%= image_path('bannerbackground.jpg') %>);">
       <div class="banner-content">
-        <h1>WELCOME HOME</h1>
-        <p>Rent unique places to stay from local hosts in 190+ countries.</p>
-        <form action="#" class="form-inline">
-          <input type="text" class="form-control input-lg" placeholder="checkin">
-          <input type="text" class="form-control input-lg" placeholder="checkout">
-          <select name="" id="" class="form-control input-lg">
-            <option value="1">1 person</option>
-            <option value="2">2 persons</option>
-            <option value="3">3 persons</option>
-          </select>
-          <input type="submit" class="btn btn-primary btn-lg" value="Search">
-        </form>
+        <h1>SPADIUM</h1>
+        <p>Rent unique places to stay enjoy a spa.</p>
+          <div class="container text-center">
+            <form class="form-spabnb">
+              <div class="form-location">
+                <Label>Where</Label>
+                <input type="text" class="form-control input-lg" id="where" placeholder="Bruxelles, Bordeaux, Milan">
+              </div>
+              <div class="form-dates">
+                <!-- <div> -->
+                  <Label>Dates</Label>
+                <!-- </div> -->
+
+                <div class="form-checkinout">
+                  <input type="text" class="form-control input-lg" id="checkin" placeholder="checkin">
+                  <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                  <input type="text" class="form-control input-lg" id="checkout" placeholder="checkout">
+                  <!-- <button type="button" class="btn btn-circle"><i class="fa fa-times"></i></button> -->
+                </div>
+              </div>
+              <div class="form-guests">
+                <Label>Guests</Label>
+                <select class="form-control input-lg" id="nbguest">
+                  <option value="1">1 guest</option>
+                  <option value="2">2 guests</option>
+                  <option value="3">3 guests</option>
+                </select>
+              </div>
+              <div class="form-search">
+                <button type="submit" class="btn btn-danger btn-lg">Search</button>
+              </div>
+            </form>
+          </div>
       </div>
     </div>
 
-        <!-- Your cards code -->
-  <div class="wrapper-grey padded">
-    <div class="container">
-      <h2 class="text-center">Your next trip</h2>
-      <div class="row">
-        <% data.team.each do |member, infos| %>
-        <div class="col-xs-12 col-md-4">
-          <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path(infos.url) %>);">
-            <div class="card-category"><%= infos.location %></div>
-            <%= image_tag infos.picture, class: "card-user avatar avatar-large" %>
-            <div class="card-description">
-            <h2><%= member.capitalize %></h2>
-            <p><%= infos.details %></p>
+
+
+     <!-- Your cards code -->
+    <div class="wrapper-grey padded">
+      <div class="container">
+        <h2 class="text-center">Your next relaxing moment</h2>
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path('cardspa3.jpg')%>);">
+              <div class="card-category">Paris</div>
+              <div class="card-description">
+                <h2>Le Spa 28</h2>
+                <p>Serenity and Calm</p>
+              </div>
+              <a class="card-link" href="#" ></a>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path('cardspa2.jpg')%>);">
+              <div class="card-category">Brussels</div>
+              <div class="card-description">
+                <h2>Blue Lights</h2>
+                <p>Chill and Massages</p>
+              </div>
+              <a class="card-link" href="#" ></a>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path('cardspa1.jpg')%>);">
+              <div class="card-category">London</div>
+              <div class="card-description">
+                <h2>Soho Spa</h2>
+                <p>Classic Spa</p>
+              </div>
+              <a class="card-link" href="#" ></a>
             </div>
           </div>
         </div>
-      <% end %>
       </div>
     </div>
-  </div>
+
+
 
 
     <!-- Your newsletter code -->
@@ -51,7 +92,7 @@
       <h2>Get news from us</h2>
       <p>Leave us your mail and get news from us</p>
       <form class="form-inline">
-        <input type="email" placeholder="spock@cat.com" class="form-control">
+        <input type="email" placeholder="adrien@gmail.com" class="form-control">
         <input type="submit" value="Subscribe" class="btn btn-primary">
       </form>
     </div>
