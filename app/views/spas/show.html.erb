@@ -5,9 +5,9 @@
   <h2><%= @spa.name %></h2>
   <h2><%= @spa.description %></h2>
   <h2><%= @spa.amenities %></h2>
-  <%# if @spa.photo? %>
-  <%#= cl_image_tag @spa.photo.path, width: 200, height: 300, crop: :fill %>
-  <%# end %>
+  <% if @spa.photo? %>
+  <%= cl_image_tag @spa.photo.path, width: 200, height: 300, crop: :fill %>
+  <% end %>
 </div>
 
 <div class = 'text-right'>
