@@ -1,32 +1,31 @@
 
-<div class="container">
-  <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<%= cl_image_tag @spa.photo.path, width: 300, height: 200, crop: :fill, quality: "auto" %>);">
-    <h1 class="text-center"><%= @spa.name %></h1>
-    <div class="row">
-      <div class = 'col-sm-8 spas_show'>
-      <%# if @spa.photo? %>
-        <%= cl_image_tag @spa.photo.path, width: 300, height: 200, crop: :fill %>
-        <%# end %>
+
+
+  <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<%= cl_image_path @spa.photo.path, quality: "auto" %>);">
+    <div class="banner-content">
+    <h1><%= @spa.name %></h1>
+    </div>
   </div>
-        <p class = 'spa-description'><%= @spa.description.html_safe %></p>
-        <div class="row">
-          <div class="col-sm-6">
-          <h3>Equipments</h3>
-            <ul>
-              <% @spa.equipments.each do |equipment| %>
-                <li><%= equipment %></li>
-              <% end %>
-            </ul>
-          </div>
-          <div class="col-sm-6">
-            <h3>Installations</h3>
-            <ul>
-              <% @spa.installations.each do |installation| %>
-                <li><%= installation %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
+
+<div class="container">
+  <p class = 'spa-description'><%= @spa.description.html_safe %></p>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Equipments</h3>
+        <ul>
+          <% @spa.equipments.each do |equipment| %>
+            <li><%= equipment %></li>
+          <% end %>
+        </ul>
+      </div>
+        <div class="col-sm-6">
+          <h3>Installations</h3>
+          <ul>
+            <% @spa.installations.each do |installation| %>
+              <li><%= installation %></li>
+          <% end %>
+          </ul>
+      </div>
     </div>
 
     <div class = 'col-sm-4 massages'>
