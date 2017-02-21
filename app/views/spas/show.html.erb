@@ -22,7 +22,7 @@
               <p><%= massage.price %>€</p>
             </div>
             <div class="massage-book">
-              <%= link_to "Book", '#', class: "btn btn-primary"%>
+              <%= link_to "Book", new_spa_booking_path(params[:id], massage_id: massage.id) ,  class: "btn btn-primary"%>
             </div>
           </li>
         <% end %>
