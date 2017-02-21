@@ -4,5 +4,5 @@ class Booking < ApplicationRecord
   has_one :spa, :through => :massage
   validates :date, presence: true
   validates :time_in, presence: true
-  validates :time_out, presence: true
+  # validates :time_out, presence: true
 end
