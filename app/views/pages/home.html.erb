@@ -21,7 +21,7 @@
                 <!-- </div> -->
 
                 <div class="form-checkinout">
-                  <input type="text" class="form-control input-lg" id="datepicker" name="checkin" placeholder="checkin">
+                  <input type="text" class="form-control datepicker input-lg" data-provide='datepicker' id="datepicker" name="checkin" placeholder="checkin">
 
                   <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                   <input type="text" class="form-control input-lg" id="checkout" name="checkout" placeholder="checkout">
@@ -88,9 +88,12 @@
 <!-- Include Google Maps JS API -->
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBhE8JetRhlgSb5NDQVszwWTTNfW8O-x4o">
+  $(document).ready(function() {
+    $('.datepicker').datepicker();
+  });
 </script>
 
 <!-- Custom JS code to bind to Autocomplete API -->
 <!-- find it here: https://github.com/lewagon/google-place-autocomplete/blob/gh-pages/autocomplete.js -->
 <!-- We'll detail this file in the article -->
-<script type="text/javascript" src="autocomplete.js"></script>
+<!-- <script type="text/javascript" src="autocomplete.js"></script> -->
