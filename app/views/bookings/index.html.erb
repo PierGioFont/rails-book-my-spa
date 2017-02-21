@@ -15,7 +15,10 @@
           <%= booking.date %>
         </div>
         <div >
-          <%= link_to 'Cancel my booking', '#', class: "btn btn-warning" %>
+          <%= link_to booking , method: :delete,
+            class: "btn btn-warning", data:{confirm: "Are you sure?"} do %>
+            <i class="fa fa-times"></i> Cancel my booking
+          <% end %>
         </div>
       </li>
     <% end %>
