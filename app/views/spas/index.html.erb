@@ -3,7 +3,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<h1>Spas#index</h1>
+<div class="container text-center index-spabnb">
+  <form class="form-spabnb">
+    <div class="form-location">
+      <Label>Where</Label>
+      <input type="text" class="form-control input-lg" id="where" placeholder="Bruxelles, Bordeaux, Milan">
+    </div>
+     <div class="form-dates">
+                <!-- <div> -->
+        <Label>Dates</Label>
+                <!-- </div> -->
+      <div class="form-checkinout">
+          <input type="text" class="form-control input-lg" id="checkin" placeholder="checkin">
+          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+          <input type="text" class="form-control input-lg" id="checkout" placeholder="checkout">
+        </div>
+      </div>
+    <div class="form-guests">
+      <Label>Guests</Label>
+      <select class="form-control input-lg" id="nbguest">
+        <option value="1">1 guest</option>
+        <option value="2">2 guests</option>
+        <option value="3">3 guests</option>
+      </select>
+    </div>
+    <div class="form-search">
+      <button type="submit" class="btn btn-danger btn-lg">Search</button>
+    </div>
+  </form>
+</div>
+
+
 
 <div class="container">
   <div class="row">
@@ -12,10 +42,9 @@
           <%= link_to spa_path(spa) do %>
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path spa.photo.path, quality: "auto:eco", crop: :fill unless spa.photo.nil? %>');">
                 <div class="card-category">
-                    <h2><%= spa.name.capitalize %></h2>
+                    <h4><%= spa.name.capitalize %></h4>
                 </div>
-                <div class="card-description"><%= spa.address %></div>
-                <div class="card-description"><%= spa.description %></div>
+                <div class="card-description"><p id="address-spa"><%= spa.address %></p></div>
             </div>
           <% end %>
         </div>
@@ -25,12 +54,4 @@
 
 
 
-<div id="map" style="height: 300px"></div>
 
-    <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script src="js/app.js"></script>
