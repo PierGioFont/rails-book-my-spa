@@ -10,23 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170220162634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
-
-  create_table "bookings", force: :cascade do |t|
-    t.date     "date"
-    t.datetime "time_in"
-    t.datetime "time_out"
-    t.integer  "user_id"
-    t.integer  "massage_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["massage_id"], name: "index_bookings_on_massage_id", using: :btree
-    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
 
   create_table "attachinary_files", force: :cascade do |t|
     t.string   "attachinariable_type"
@@ -41,6 +29,18 @@ ActiveRecord::Schema.define(version: 20170220162634) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.date     "date"
+    t.datetime "time_in"
+    t.datetime "time_out"
+    t.integer  "user_id"
+    t.integer  "massage_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["massage_id"], name: "index_bookings_on_massage_id", using: :btree
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
 
   create_table "massages", force: :cascade do |t|
