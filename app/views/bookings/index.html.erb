@@ -1,25 +1,47 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Bookings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container">
+  <h1 class="text-center">My upcoming bookings</h1>
+  <ul class="unstyled-list">
     <% @bookings.each do |booking| %>
-      <tr>
-        <td><%= link_to 'Show', booking %></td>
-        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <li class="booking">
+        <% if booking.spa.photo? %>
+          <%= cl_image_tag booking.spa.photo.path, width: 175, class: "product-image" %>
+        <% end %>
+        <%#= booking.spa.name %>
+        <div class="booking-body">
+          <h3><%= booking.massage.name %></h3>
+          <%= booking.massage.description %>
+        </div>
+        <div class="booking-date">
+          <%= booking.date %>
+        </div>
+        <div >
+          <%= link_to 'Cancel my booking', '#', class: "btn btn-warning" %>
+        </div>
+        <!-- <ul class="list-inline booking-controls hidden-xs">
+          <li><a href=""><i class="fa fa-heart"></i></a></li>
+          <li><a href=""><i class="fa fa-share"></i></a></li>
+          <li><a href=""><i class="fa fa-star"></i></a></li>
+
+        </ul> -->
+      </li>
     <% end %>
-  </tbody>
-</table>
+  </ul>
+</div>
+<!--
 
-<br>
-
-<%= link_to 'New Booking', new_booking_path %>
+<div class="product">
+  <div class='product-upvote'>
+    <div class="product-arrow"></div>
+    <div class='product-count'>95</div>
+  </div>
+  <div class='product-body'>
+    <h3>Kudoz</h3>
+    <p>Les meilleures offres d'emploi cadre sur mobile</p>
+  </div>
+  <ul class="list-inline product-controls hidden-sm hidden-xs">
+    <li><a href=""><i class="fa fa-heart"></i></a></li>
+    <li><a href=""><i class="fa fa-share"></i></a></li>
+    <li><a href=""><i class="fa fa-star"></i></a></li>
+  </ul>
+</div>
+ -->
