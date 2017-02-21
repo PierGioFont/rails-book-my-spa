@@ -1,10 +1,10 @@
-<h1>coucou</h1>
+
 <div class="container">
   <div class="row">
     <div class = 'col-sm-6 spas_show'>
-      <h2><%= @spa.name %></h2>
-      <h2><%= @spa.description %></h2>
-      <h2><%= @spa.amenities %></h2>
+      <h1><%= @spa.name %></h1>
+      <p><%= @spa.description %></p>
+      <p><% @spa.amenities.values %></p>
       <% if @spa.photo? %>
       <%= cl_image_tag @spa.photo.path, width: 200, height: 300, crop: :fill %>
       <% end %>
@@ -15,7 +15,7 @@
         <% @spa.massages.each do |massage| %>
           <li class = "massage">
             <div class="massage-content">
-              <h3><%= massage.name %></h3>
+              <p><strong><%= massage.name %></strong></h3>
               <p><%= massage.description %></p>
             </div>
             <div class="massage-price">
