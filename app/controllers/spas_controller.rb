@@ -4,6 +4,7 @@ class SpasController < ApplicationController
 
   def index
     @spas = Spa.where("lower(address) LIKE ? ", "%#{params['where'].downcase}%")
+    #byebug
     if @spas.empty?
       flash[:alert]= "No Spa found with this criteria"
       redirect_to root_path
