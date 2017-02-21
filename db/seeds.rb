@@ -45,6 +45,8 @@ scrap.each do |spa|
   spa['name'] = CGI::unescapeHTML(spa['name'])
   spa['description'] = CGI::unescapeHTML(spa['description'])
   spa['address'] = CGI::unescapeHTML(spa['address'])
+  spa['amenities']['installations'] = spa['amenities']['installations'].join(';')
+  spa['amenities']['equipments'] = spa['amenities']['equipments'].join(';')
 
   new_spa = Spa.new(spa.slice('name', 'description', 'amenities', 'address'))
   new_spa.user = user

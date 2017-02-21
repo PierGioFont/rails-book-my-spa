@@ -7,21 +7,21 @@
   <form class="form-spabnb">
     <div class="form-location">
       <Label>Where</Label>
-      <input type="text" class="form-control input-lg" id="where" value= <%= params[:where] %> >
+      <input type="text" class="form-control input-lg" id="where" name="where" value= <%= params[:where] %> >
     </div>
      <div class="form-dates">
                 <!-- <div> -->
         <Label>Dates</Label>
                 <!-- </div> -->
       <div class="form-checkinout">
-          <input type="text" class="form-control input-lg" id="checkin" placeholder="checkin">
+          <input type="text" class="form-control input-lg" id="checkin" name="checkin" placeholder="checkin">
           <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-          <input type="text" class="form-control input-lg" id="checkout" placeholder="checkout">
+          <input type="text" class="form-control input-lg" id="checkout" name="checkout" placeholder="checkout">
         </div>
       </div>
     <div class="form-guests">
       <Label>Guests</Label>
-      <select class="form-control input-lg" id="nbguest">
+      <select class="form-control input-lg" id="nbguest" name="guests">
         <option value="1">1 guest</option>
         <option value="2">2 guests</option>
         <option value="3">3 guests</option>
@@ -45,7 +45,7 @@
                 <div class="card-category">
                     <h4><%= spa.name.capitalize %></h4>
                 </div>
-                <div class="card-description"><p id="address-spa"><%= spa.address %></p></div>
+                <div class="card-description"><p class="address-spa"><%= spa.address %></p></div>
             </div>
           <% end %>
         </div>
