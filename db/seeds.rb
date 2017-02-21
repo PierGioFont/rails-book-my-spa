@@ -39,7 +39,7 @@ case Rails.env
 when "development"
    scrap = scrap.first(20)
 when "production"
-
+  scrap = scrap.first(40)
 end
 scrap.each do |spa|
   spa['name'] = CGI::unescapeHTML(spa['name'])
