@@ -3,11 +3,14 @@ class SpasController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    @spas = Spa.all
+    @spas = Spa.where("lower(city) LIKE ? ", "%#{params['where'].downcase}%")
+    if @spas.empty?
+      flash[:alert]= "No Spa found with this criteria"
+      redirect_to root_path
+    end
   end
 
   def show
-
   end
 
   def new

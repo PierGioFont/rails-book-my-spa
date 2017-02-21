@@ -10,10 +10,10 @@
         <h1>SPADIUM</h1>
         <p>Rent unique places to stay enjoy a spa.</p>
           <div class="container text-center">
-            <form class="form-spabnb">
+            <form class="form-spabnb" action=<%= spas_path %>>
               <div class="form-location">
                 <Label>Where</Label>
-                <input type="text" class="form-control input-lg" id="where" placeholder="Bruxelles, Bordeaux, Milan">
+                <input type="text" class="form-control input-lg" id="where" name="where" placeholder="Bruxelles, Bordeaux, Milan">
               </div>
               <div class="form-dates">
                 <!-- <div> -->
