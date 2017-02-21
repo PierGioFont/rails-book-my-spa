@@ -55,13 +55,6 @@ ActiveRecord::Schema.define(version: 20170221175045) do
     t.index ["spa_id"], name: "index_massages_on_spa_id", using: :btree
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.string   "content"
-    t.integer  "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "spas", force: :cascade do |t|
     t.string   "address"
     t.string   "city"
