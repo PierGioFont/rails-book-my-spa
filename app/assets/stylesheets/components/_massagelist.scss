@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  margin-top: 30px;
   .massage-content{
     flex: 1 0 auto;
   }
@@ -14,4 +15,8 @@
     // flex: 1 0 20%;
 
   }
+}
+
+.list-unstyled {
+  margin-top: 50px;
 }
