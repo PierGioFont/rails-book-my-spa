@@ -1,19 +1,37 @@
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 <h1>Spas#index</h1>
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-10 col-sm-offset-1">
-        <% @spas.each do |spa|  %>
-            <div class="col-sm-4 spa-card">
-              <%= link_to spa_path(spa) do %>
-                <h2><%= spa.name %></h2>
-              <% end %>
-              <%#= render 'shared/stars', rating: spa.average_rating%>
-              <p><%= spa.address %></p>
-              <p><strong><%= spa.city.upcase %></strong></p>
-              <p><%= spa.description %></p>
+
+      <% @spas.each do |spa|  %>
+        <div class="col-sm-4 card">
+          <%= link_to spa_path(spa) do %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path spa.photo.path, quality: "auto:eco", crop: :fill unless spa.photo.nil? %>');">
+                <div class="card-category">
+                    <h2><%= spa.name.capitalize %></h2>
+                </div>
+                <div class="card-description"><%= spa.address %></div>
+                <div class="card-description"><%= spa.description %></div>
             </div>
-        <% end %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
-  </div>
 </div>
+
+
+
+<div id="map" style="height: 300px"></div>
+
+    <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="js/app.js"></script>
