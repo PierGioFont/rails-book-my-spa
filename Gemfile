@@ -39,7 +39,7 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  #gem "letter_opener", group: :development
+  gem "letter_opener"
 
 
   gem 'rails_real_favicon'
