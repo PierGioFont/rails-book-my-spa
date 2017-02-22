@@ -9,6 +9,7 @@ class SpasController < ApplicationController
     #   @spas = Spa.where("lower(address) LIKE ? ", "%#{params['where'].downcase}%")
     else
       # distance = 100 if params['dist'].nil? || params['dist'].empty?
+      raise
       distance = 100
       @spas = Spa.near(params['where'], distance)
       # @flats = Flat.where.not(latitude: nil, longitude: nil)
