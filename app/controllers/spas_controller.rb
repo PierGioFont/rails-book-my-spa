@@ -8,7 +8,8 @@ class SpasController < ApplicationController
     # elsif params['dist'].nil?
     #   @spas = Spa.where("lower(address) LIKE ? ", "%#{params['where'].downcase}%")
     else
-      distance = 100 if params['dist'].nil? || params['dist'].empty?
+      # distance = 100 if params['dist'].nil? || params['dist'].empty?
+      distance = 100
       @spas = Spa.near(params['where'], distance)
       # @flats = Flat.where.not(latitude: nil, longitude: nil)
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { spa: spa })
@@ -21,7 +22,7 @@ class SpasController < ApplicationController
       marker.lat spa.latitude
       marker.lng spa.longitude
     end
-    find_relative_distances(params['where'])
+    # find_relative_distances(params['where'])
   end
 
   def show
