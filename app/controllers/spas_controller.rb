@@ -3,7 +3,7 @@ class SpasController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    if params['where'].nil?
+    if params['where'].nil? || params['where'].empty?
       @spas = Spa.all
     else
       # @spas = Spa.where("lower(address) LIKE ? ", "%#{params['where'].downcase}%")
