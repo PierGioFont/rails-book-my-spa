@@ -14,7 +14,7 @@
         <Label>Dates</Label>
                 <!-- </div> -->
       <div class="form-checkinout">
-          <input type="text" class="form-control input-lg" id="checkin" name="checkin" placeholder="checkin">
+          <input type="text" class="form-control datepicker input-lg" data-provide='datepicker' name="checkin" value= <%= params[:checkin] %> >
           <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
           <input type="text" class="form-control input-lg" id="checkout" name="checkout" placeholder="checkout">
         </div>
