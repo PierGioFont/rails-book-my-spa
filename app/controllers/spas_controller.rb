@@ -7,7 +7,7 @@ class SpasController < ApplicationController
       @spas = Spa.all
     else
       # @spas = Spa.where("lower(address) LIKE ? ", "%#{params['where'].downcase}%")
-      @spas = Spa.near(params['where'], 1000)
+      @spas = Spa.near(params['where'], 100)
       # @flats = Flat.where.not(latitude: nil, longitude: nil)
 
       @hash = Gmaps4rails.build_markers(@spas) do |spa, marker|
