@@ -14,8 +14,6 @@ class BookingsController < ApplicationController
     @massage = Massage.find(params[:massage_id])
   end
 
-  def edit
-  end
 
   def create
     @booking = Booking.new(booking_params)
@@ -23,36 +21,27 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path, notice: 'Booking was successfully created.'
     else
-      render :new
+      @spa = Spa.find(params[:spa_id])
+      # render 'spas/show'
+      flash[:alert]= "Invalid booking please check the form"
+      redirect_to spa_path(params[:spa_id])
     end
   end
 
-  def update
-    respond_to do |format|
-      if @booking.update(booking_params)
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
-    end
-  end
+
 
   def destroy
     @booking.destroy
-    respond_to do |format|
-      format.html { redirect_to bookings_url, notice: 'Booking was successfully destroyed.' }
-    end
+    redirect_to bookings_url, notice: 'Your booking was successfully cancelled. hope to see you back soon!'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_booking
-      @booking = Booking.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def booking_params
-      # byebug
-      params.require(:booking).permit(:date, :time_in, :massage_id, :spa_id )
-    end
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
+
+  def booking_params
+    params.require(:booking).permit(:date, :time_in, :massage_id, :spa_id )
+  end
 end

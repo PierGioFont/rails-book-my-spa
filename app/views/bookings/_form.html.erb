@@ -1,12 +1,23 @@
-<%= simple_form_for [@spa, @booking] do |f| %>
-  <%= f.error_notification %>
-  <div class="form-inputs">
-    <%= f.input :massage_id, collection: @spa.massages, selected: @massage %>
-    <%= f.input :date %>
-    <%= f.input :time_in %>
-  </div>
+<div class="form-booking">
+  <%= simple_form_for [@spa, @booking] do |f| %>
+    <%#= f.error_notification %>
+    <div class="form-inputs">
+      <%#= f.input :massage_id, collection: @spa.massages, selected: @massage, as: :radio_buttons %>
+      <% @spa.massages.each do |massage| %>
+      <div class="radio-enhanced">
+        <input type="radio" id="<%= massage.id %>" name="booking[massage_id]" value="<%= massage.id %>" />
+        <label for="<%= massage.id %>">
+          <h3><%= massage.name %></h3>
+          <small><%= massage.description %></small>
+        </label>
+      </div>
+      <% end %>
+      <%= f.input :date %>
+      <%= f.input :time_in, as: :time%>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-danger btn-lg btn-block " %>
+    </div>
+  <% end %>
+</div>

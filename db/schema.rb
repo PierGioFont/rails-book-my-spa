@@ -33,13 +33,14 @@ ActiveRecord::Schema.define(version: 20170221174033) do
 
   create_table "bookings", force: :cascade do |t|
     t.date     "date"
-    t.datetime "time_in"
+    t.time     "time_in"
     t.datetime "time_out"
     t.integer  "user_id"
     t.integer  "massage_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "rating"
+    t.string   "content"
     t.index ["massage_id"], name: "index_bookings_on_massage_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
@@ -65,6 +66,8 @@ ActiveRecord::Schema.define(version: 20170221174033) do
     t.hstore   "amenities",   default: {}, null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["user_id"], name: "index_spas_on_user_id", using: :btree
   end
 

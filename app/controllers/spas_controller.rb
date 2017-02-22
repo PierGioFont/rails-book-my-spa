@@ -6,7 +6,8 @@ class SpasController < ApplicationController
     if params['where'].nil?
       @spas = Spa.all
     else
-      @spas = Spa.where("lower(address) LIKE ? ", "%#{params['where'].downcase}%")
+      # @spas = Spa.where("lower(address) LIKE ? ", "%#{params['where'].downcase}%")
+      @spas = Spa.near(params['where'], 100)
       if @spas.empty?
         flash[:alert]= "No Spa found with this criteria"
         redirect_to root_path
@@ -15,6 +16,7 @@ class SpasController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
