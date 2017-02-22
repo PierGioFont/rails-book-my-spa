@@ -7,7 +7,14 @@ class SpasController < ApplicationController
       @spas = Spa.all
     else
       # @spas = Spa.where("lower(address) LIKE ? ", "%#{params['where'].downcase}%")
-      @spas = Spa.near(params['where'], 100)
+      @spas = Spa.near(params['where'], 1000)
+      # @flats = Flat.where.not(latitude: nil, longitude: nil)
+
+      @hash = Gmaps4rails.build_markers(@spas) do |spa, marker|
+        marker.lat spa.latitude
+        marker.lng spa.longitude
+        # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      end
       if @spas.empty?
         flash[:alert]= "No Spa found with this criteria"
         redirect_to root_path
