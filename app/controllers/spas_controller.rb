@@ -3,11 +3,11 @@ class SpasController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    if params['where'].nil?
+    if params['where'].nil? || params['where'].empty?
       @spas = Spa.all
     else
       # @spas = Spa.where("lower(address) LIKE ? ", "%#{params['where'].downcase}%")
-      @spas = Spa.near(params['where'], 100)
+      @spas = Spa.near(params['where'], 1000)
       # @flats = Flat.where.not(latitude: nil, longitude: nil)
 
       @hash = Gmaps4rails.build_markers(@spas) do |spa, marker|

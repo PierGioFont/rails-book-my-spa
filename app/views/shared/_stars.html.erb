@@ -1,0 +1,12 @@
+<% stars_h = stars(rating) %>
+<span class="review-rating">
+  <% stars_h[:full].times do %>
+    <i class="fa fa-star star-active" aria-hidden="true"></i>
+  <% end %>
+  <% stars_h[:half].times do %>
+    <i class="fa fa-star-half-o star-active" aria-hidden="true"></i>
+  <% end %>
+  <% stars_h[:empty].times do %>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+  <% end %>
+</span>
