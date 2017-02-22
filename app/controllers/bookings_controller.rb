@@ -31,12 +31,11 @@ class BookingsController < ApplicationController
   end
 
   def update
-    byebug
-    @booking = Booking.new(booking_params)
-    @booking.spa = Spa.find(params[:spa_id])
+    @booking.content = params[:content]
+    @booking.rating = params[:rating]
     if @booking.save
       flash[:notice] = "review succesfully added"
-      redirect_to spa_path(@booking.spa_id)
+      redirect_to bookings_path
     else
       flash[:alert] = "invalid review"
       render :new
@@ -57,6 +56,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:date, :time_in, :massage_id, :spa_id )
+    params.require(:booking).permit(:date, :time_in, :massage_id, :spa_id, :content, :rating )
   end
 end
