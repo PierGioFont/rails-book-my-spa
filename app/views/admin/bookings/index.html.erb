@@ -1,12 +1,11 @@
 <div class="container">
-  <h1 class="text-center">My upcoming bookings</h1>
+  <h1 class="text-center">Upcoming bookings</h1>
   <ul class="unstyled-list">
     <% @bookings.each do |booking| %>
       <li class="booking">
         <% if booking.spa.photo? %>
           <%= cl_image_tag booking.spa.photo.path, width: 175, class: "product-image" %>
         <% end %>
-        <%#= booking.spa.name %>
         <div class="booking-body">
           <h3><%= booking.massage.name %></h3>
           <p><%= booking.massage.description %></p>
@@ -14,14 +13,16 @@
         <div class="booking-date">
           <%= booking.date %>
         </div>
-        <div >
-          <%= link_to booking , method: :delete,
-            class: "btn btn-warning", data:{confirm: "Are you sure?"} do %>
-            <i class="fa fa-times"></i> Cancel my booking
-          <% end %>
+        <div class="booking-client">
+          <%= booking.user.first_name %>
+          <%= booking.user.last_name %>
         </div>
       </li>
     <% end %>
   </ul>
 </div>
+
+
+
+
 

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
 
   namespace :admin do
-    resources :spas, only: [:index]
+    resources :spas, only: [:index] do
+      resources :bookings, only: [:index]
+    end
   end
 end

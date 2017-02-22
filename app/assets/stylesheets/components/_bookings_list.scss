@@ -14,11 +14,13 @@
     font-weight: bold;
     font-size: 23px;
     margin-top: 0;
+    margin-left: 10px;
   }
   p {
     font-weight: lighter;
     color: #999999;
     margin-bottom: 0;
+    margin-left: 10px;
   }
 }
 
@@ -65,3 +67,6 @@
   color: #E6E6E6;
 }
 
+.booking-date {
+  margin-right: 10px;
+}
