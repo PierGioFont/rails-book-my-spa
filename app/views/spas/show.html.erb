@@ -1,52 +1,50 @@
-
-
-
-  <div class="banner" style="background: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<%= cl_image_path @spa.photo.path, quality: "auto" %>);">
-    <div class="banner-content">
-    <h1><%= @spa.name %></h1>
+<div class="row">
+  <div class="col-sm-8">
+    <div class="banner banner-half-page" style="background: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<%= cl_image_path @spa.photo.path, quality: "auto" %>);">
+      <div class="banner-content">
+        <h1><%= @spa.name %></h1>
+      </div>
     </div>
-  </div>
-
-<div class="container">
-  <p class = 'spa-description'><%= @spa.description.html_safe %></p>
+    <p class = 'spa-description'><%= @spa.description.html_safe %></p>
     <div class="row">
       <div class="col-sm-6">
         <h3>Equipments</h3>
         <ul>
           <% @spa.equipments.each do |equipment| %>
-            <li><%= equipment %></li>
+          <li><%= equipment %></li>
           <% end %>
         </ul>
       </div>
-        <div class="col-sm-6">
-          <h3>Installations</h3>
-          <ul>
-            <% @spa.installations.each do |installation| %>
-              <li><%= installation %></li>
+      <div class="col-sm-6">
+        <h3>Installations</h3>
+        <ul>
+          <% @spa.installations.each do |installation| %>
+          <li><%= installation %></li>
           <% end %>
-          </ul>
+        </ul>
       </div>
     </div>
-
-    <div class = 'col-sm-4 massages'>
-    <ul class="list-unstyled">
-        <% @spa.massages.each do |massage| %>
-          <li class = "massage">
-            <div class="massage-content">
-              <p><strong><%= massage.name %></strong></h3>
-              <p><%= massage.description %></p>
-            </div>
-            <div class="massage-price">
-              <p><%= massage.price %>€</p>
-            </div>
-            <div class="massage-book">
-              <%= link_to "Book", new_spa_booking_path(params[:id], massage_id: massage.id) ,  class: "btn btn-primary"%>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    </div>
   </div>
+  <div class="col-sm-4">
+    <!-- <ul class="list-unstyled">
+      <%# @spa.massages.each do |massage| %>
+        <li class = "massage">
+          <div class="massage-content">
+            <p><strong><%#= massage.name %></strong></h3>
+            <p><%#= massage.description %></p>
+          </div>
+          <div class="massage-price">
+            <p><%#= massage.price %>€</p>
+          </div>
+          <div class="massage-book">
+            <%#= link_to "Book", new_spa_booking_path(params[:id], massage_id: massage.id) ,  class: "btn btn-primary"%>
+          </div>
+        </li>
+      <%# end %>
+    </ul> -->
+    <%= render 'bookings/form' %></div>
+
+
+  </div>
+
 </div>
-
-
