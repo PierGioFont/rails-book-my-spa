@@ -1,4 +1,5 @@
 class Spa < ApplicationRecord
+  attr_accessor :distance
   belongs_to :user
   validates :name, presence: true
   has_many :massages
