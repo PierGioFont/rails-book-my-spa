@@ -2,9 +2,11 @@ class Massage < ApplicationRecord
   after_initialize :set_defaults, unless: :persisted?
 
   belongs_to :spa
+  has_one :booking
   validates :name, presence: true
   has_many :users, through: :bookings
   has_many :bookings
+
 
   def set_defaults
     self.price = 0 if self.price.nil?

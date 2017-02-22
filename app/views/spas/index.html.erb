@@ -5,20 +5,23 @@
 
 <div class="container text-center index-spabnb">
   <form class="form-spabnb">
-    <div class="form-location">
+    <div class="form-dates">
       <Label>Where</Label>
       <input type="text" class="form-control input-lg" id="where" name="where" value= <%= params[:where] %> >
-    </div>
-     <div class="form-dates">
+
+    </div> <!-- end LOCATION -->
+    <div class="form-dates">
                 <!-- <div> -->
-        <Label>Dates</Label>
+      <!-- <Label>Dates</Label> -->
+      <Label>Km around</Label>
                 <!-- </div> -->
       <div class="form-checkinout">
-          <input type="text" class="form-control datepicker input-lg" data-provide='datepicker' name="checkin" value= <%= params[:checkin] %> >
-          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-          <input type="text" class="form-control input-lg" id="checkout" name="checkout" placeholder="checkout">
-        </div>
+        <input type="number" class="form-control input-lg" id="dist" name="dist" value= <%= (params[:dist]).nil? ? 100 : params[:dist] %> >
       </div>
+          <!-- <input type="text" class="form-control datepicker input-lg" data-provide='datepicker' name="checkin" value= <%= params[:checkin] %> >
+          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+          <input type="text" class="form-control input-lg" id="checkout" name="checkout" placeholder="checkout"> -->
+    </div>
     <div class="form-guests">
       <Label>Guests</Label>
       <select class="form-control input-lg" id="nbguest" name="guests">
@@ -31,12 +34,10 @@
       <button type="submit" class="btn btn-danger btn-lg">Search</button>
     </div>
   </form>
-</div>
-
-
+</div>  <!-- end CONTAINER -->
 
 <div class="container">
-<div id="map" style="width: 100%; height: 400px;"></div>
+  <div id="map" style="width: 100%; height: 400px;"></div>
   <div class="row">
 
       <% @spas.each do |spa|  %>
@@ -46,6 +47,8 @@
                 <div class="card-category">
                     <h4><%= spa.name.capitalize %></h4>
                 </div>
+                <%= render 'shared/stars', rating: 3.5 %>
+                <div class="card-distance"><%= spa.distance %> km</div>
                 <div class="card-description"><p class="address-spa"><%= spa.address %></p></div>
             </div>
           <% end %>
@@ -54,14 +57,9 @@
     </div>
 </div>
 
-
-
-
 <!-- <script type="text/javascript"
   src=<%#= "https://maps.googleapis.com/maps/api/js?libraries=places&key=" + ENV['GOOGLE_MAPS'] %>>
 </script> -->
-
-
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
