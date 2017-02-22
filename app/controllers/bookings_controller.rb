@@ -6,6 +6,8 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @spa = Spa.find(params[:spa_id])
+    @new_review = @spa.booking.build
   end
 
   def new
@@ -25,6 +27,19 @@ class BookingsController < ApplicationController
       # render 'spas/show'
       flash[:alert]= "Invalid booking please check the form"
       redirect_to spa_path(params[:spa_id])
+    end
+  end
+
+  def update
+    byebug
+    @booking = Booking.new(booking_params)
+    @booking.spa = Spa.find(params[:spa_id])
+    if @booking.save
+      flash[:notice] = "review succesfully added"
+      redirect_to spa_path(@booking.spa_id)
+    else
+      flash[:alert] = "invalid review"
+      render :new
     end
   end
 

@@ -16,6 +16,7 @@ class SpasController < ApplicationController
 
   def show
     @booking = Booking.new
+
   end
 
   def new

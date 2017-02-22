@@ -42,9 +42,19 @@
         </li>
       <%# end %>
     </ul> -->
-    <%= render 'bookings/form' %></div>
-
-
+    <%= render 'bookings/form' %>
+    </div>
   </div>
-
 </div>
+
+<div class="booking-form">
+  <%= render 'bookings/form' %>
+</div>
+  <% @spa.bookings.each do |booking| %>
+    <div class="booking">
+      <div class="booking-content"><%= booking.content %></div>
+
+        </div>
+  <% end %>
+
+

@@ -14,6 +14,12 @@
         <div class="booking-date">
           <%= booking.date %>
         </div>
+        <div class="booking-review">
+          <%= booking.id %>
+          <%=render 'bookings/form_review', new_review: booking %>
+          <%#=render 'bookings/form_review', locals: { booking: booking } %>
+
+        </div>
         <div >
           <%= link_to booking , method: :delete,
             class: "btn btn-warning", data:{confirm: "Are you sure?"} do %>
@@ -24,4 +30,5 @@
     <% end %>
   </ul>
 </div>
+
 

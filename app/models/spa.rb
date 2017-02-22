@@ -3,6 +3,7 @@ class Spa < ApplicationRecord
   validates :name, presence: true
   has_many :massages
   has_attachment :photo
+  has_many :bookings, through: :massages
 
   def equipments
     self.amenities['equipments'].split(';')
