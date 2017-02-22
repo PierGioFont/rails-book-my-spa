@@ -5,16 +5,17 @@ class SpasController < ApplicationController
   def index
     if params['where'].nil? || params['where'].empty?
       @spas = Spa.all
-    elsif params['dist'].nil?
-      @spas = Spa.where("lower(address) LIKE ? ", "%#{params['where'].downcase}%")
+    #elsif params['dist'].nil?
+      #@spas = Spa.where("lower(address) LIKE ? ", "%#{params['where'].downcase}%")
     else
-      @spas = Spa.near(params['where'], params['dist'].to_i)
+      dist = params['dist'].nil? ? 100 : params['dist'].to_i
+      @spas = Spa.near(params['where'], dist)
       # @flats = Flat.where.not(latitude: nil, longitude: nil)
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { spa: spa })
-      if @spas.empty?
-        flash[:alert]= "No Spa found with this criteria"
-        redirect_to root_path
-      end
+    end
+    if @spas.empty?
+      flash[:alert]= "No Spa found with this criteria"
+      redirect_to root_path
     end
     @hash = Gmaps4rails.build_markers(@spas) do |spa, marker|
       marker.lat spa.latitude
@@ -25,7 +26,6 @@ class SpasController < ApplicationController
 
   def show
     @booking = Booking.new
-
   end
 
   def new
