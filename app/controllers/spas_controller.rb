@@ -1,6 +1,7 @@
 class SpasController < ApplicationController
   before_action :set_spa, only: [:show]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :require_admin!
 
   def index
     if params['where'].nil? || params['where'].empty?
