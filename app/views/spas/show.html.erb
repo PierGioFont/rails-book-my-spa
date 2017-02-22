@@ -26,24 +26,8 @@
     </div>
   </div>
   <div class="col-sm-4">
-    <!-- <ul class="list-unstyled">
-      <%# @spa.massages.each do |massage| %>
-        <li class = "massage">
-          <div class="massage-content">
-            <p><strong><%#= massage.name %></strong></h3>
-            <p><%#= massage.description %></p>
-          </div>
-          <div class="massage-price">
-            <p><%#= massage.price %>€</p>
-          </div>
-          <div class="massage-book">
-            <%#= link_to "Book", new_spa_booking_path(params[:id], massage_id: massage.id) ,  class: "btn btn-primary"%>
-          </div>
-        </li>
-      <%# end %>
-    </ul> -->
+
     <%= render 'bookings/form' %>
-    </div>
   </div>
 </div>
 
