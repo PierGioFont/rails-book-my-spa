@@ -4,6 +4,8 @@ class Spa < ApplicationRecord
   has_many :massages
   has_attachment :photo
   has_many :bookings, through: :massages
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
   def equipments
     self.amenities['equipments'].split(';')
