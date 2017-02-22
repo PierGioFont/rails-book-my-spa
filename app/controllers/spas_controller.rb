@@ -43,7 +43,9 @@ class SpasController < ApplicationController
     location = Geocoder.coordinates(centre)
     @spas.each do |spa|
       distance = Geocoder::Calculations.distance_between(location, [spa.latitude, spa.longitude])
-      spa.distance = distance.truncate unless distance.nil?
+      spa.distance = distance
+
+      # spa.distance = distance.truncate unless distance.nil?
     end
     #raise
   end
