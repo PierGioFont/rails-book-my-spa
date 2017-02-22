@@ -22,6 +22,7 @@ gem "jquery-fileupload-rails"
 gem "coffee-rails"
 gem 'omniauth-facebook'
 gem "gmaps4rails"
+gem "geocoder"
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
