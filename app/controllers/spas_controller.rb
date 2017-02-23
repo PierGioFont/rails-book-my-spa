@@ -1,5 +1,5 @@
 class SpasController < ApplicationController
-  before_action :set_spa, only: [:show]
+  before_action :set_spa, only: [:show, :edit]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
   skip_before_action :require_admin!
 
@@ -29,6 +29,8 @@ class SpasController < ApplicationController
   def new
     @spa = Spa.new
   end
+
+
 
   private
 
