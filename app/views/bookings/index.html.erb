@@ -9,7 +9,7 @@ Spadium : my bookings
     <li class="booking">
       <div class="booking-image">
         <% if booking.spa.photo? %>
-        <%= cl_image_tag booking.spa.photo.path, width: 175, class: 'booking-image'%>
+        <%= cl_image_tag booking.spa.photo.path, width: 175, height: 120, crop: :scale, class: 'booking-image'%>
         <% end %>
       </div>
       <%#= booking.spa.name %>

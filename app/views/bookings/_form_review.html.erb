@@ -1,7 +1,3 @@
-
-
-
-
 <div class="modal fade" id="review" tabindex="-1" role="dialog" aria-labelledby="review-modal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -20,25 +16,25 @@
       <div class="modal-body">
 
         <%= simple_form_for booking, method: :patch do |f| %>
-        <!-- <div class="input-content"> -->
-            <p>Rate your stay at <strong><%= booking.spa.name.capitalize %></strong></p>
-             <div class="form-group">
-              <%= f.input :content, as: :text, label: false, input_html: { rows: 7, :minlength => 100, placeholder: "a few words about your stay (min 100 characters)" } %>
-              <div class="radio-buttons star-cb-group text-right">
-                <input type="radio" id="rating-5" name="new_review[rating]" value="5" />
-                <label for="rating-5">5</label>
-                <input type="radio" id="rating-4" name="new_review[rating]" value="4" checked="checked" />
-                <label for="rating-4">4</label>
-                <input type="radio" id="rating-3" name="new_review[rating]" value="3" />
-                <label for="rating-3">3</label>
-                <input type="radio" id="rating-2" name="new_review[rating]" value="2" />
-                <label for="rating-2">2</label>
-                <input type="radio" id="rating-1" name="new_review[rating]" value="1" />
-                <label for="rating-1">1</label>
-                <input type="radio" id="rating-0" name="new_review[rating]" value="0" class="star-cb-clear" />
-                <label for="rating-0">0</label>
-              </div>
+
+          <p>Rate your stay at <strong><%= booking.spa.name.capitalize %></strong></p>
+           <div class="form-group">
+            <%= f.input :content, as: :text, label: false, input_html: { rows: 7, :minlength => 100, placeholder: "a few words about your stay (min 100 characters)" } %>
+            <div class="radio-buttons star-cb-group text-right">
+              <input type="radio" id="rating-5" name="booking[rating]" value="5" />
+              <label for="rating-5">5</label>
+              <input type="radio" id="rating-4" name="booking[rating]" value="4" checked="checked" />
+              <label for="rating-4">4</label>
+              <input type="radio" id="rating-3" name="booking[rating]" value="3" />
+              <label for="rating-3">3</label>
+              <input type="radio" id="rating-2" name="booking[rating]" value="2" />
+              <label for="rating-2">2</label>
+              <input type="radio" id="rating-1" name="booking[rating]" value="1" />
+              <label for="rating-1">1</label>
+              <input type="radio" id="rating-0" name="booking[rating]" value="0" class="star-cb-clear" />
+              <label for="rating-0">0</label>
             </div>
+          </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">
               Cancel
@@ -47,16 +43,6 @@
           </div>
         <% end %>
       </div>
-
-  <!-- Modal Footer -->
-    <!-- <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">
-        Close
-      </button>
-      <button type="button" class="btn btn-primary">
-        Save changes
-      </button>
-    </div> -->
+    </div> <!-- modal content -->
   </div>
-</div>
 </div>
