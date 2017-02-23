@@ -1,8 +1,8 @@
 <div class="box-info">
-  <div class="photo-icon text-center">
+  <div class="photo-icon">
     <%= cl_image_tag(spa.photo.path, :width => 250, :height => 70, :crop => :fill) %>
   </div>
-  <div class="spa-data text-center">
+  <div class="spa-data">
     <h5>
       <%= link_to(spa.name, spa_path(spa)) %>
     </h5>
