@@ -3,17 +3,23 @@
     <%#= f.error_notification %>
     <div class="form-inputs">
       <%#= f.input :massage_id, collection: @spa.massages, selected: @massage, as: :radio_buttons %>
+      <ul>
       <% @spa.massages.each do |massage| %>
-      <div class="radio-enhanced">
-        <input type="radio" id="<%= massage.id %>" name="booking[massage_id]" value="<%= massage.id %>" />
-        <label for="<%= massage.id %>">
-          <h3><%= massage.name %></h3>
-          <small><%= massage.description %></small>
-        </label>
-      </div>
-      <% end %>
-      <%= f.input :date %>
-      <%= f.input :time_in, as: :time%>
+          <div class="radio-enhanced">
+            <input type="radio" id="<%= massage.id %>" name="booking[massage_id]" value="<%= massage.id %>" />
+            <label for="<%= massage.id %>">
+              <div class="radio-enhanced-content">
+                <h3><%= massage.name %></h3>
+                <p><%= massage.description %></p>
+              </div>
+              <p class = "radio-enhanced-price"><%= massage.price %>€</p>
+              <i class="fa fa-plus text-left plus" aria-hidden="true"></i>
+            </label>
+          </div>
+        <% end %>
+      </ul>
+      <%= f.input :date, label: "Date", required: false %>
+      <%= f.input :time_in, as: :time, label: "Heure", required: false%>
     </div>
 
     <div class="form-actions">
