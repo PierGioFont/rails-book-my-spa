@@ -1,42 +1,53 @@
-<div class="row">
-  <div class="col-sm-8">
-    <div class="banner banner-half-page" style="background: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<%= cl_image_path @spa.photo.path, quality: "auto" %>);">
-      <div class="banner-content">
-        <h1><%= @spa.name %></h1>
-      </div>
-    </div>
-    <p class = 'spa-description'><%= @spa.description.html_safe %></p>
-    <div class="row">
-      <div class="col-sm-6">
-        <h3>Equipments</h3>
-        <ul>
-          <% @spa.equipments.each do |equipment| %>
-          <li><%= equipment %></li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="col-sm-6">
-        <h3>Installations</h3>
-        <ul>
-          <% @spa.installations.each do |installation| %>
-          <li><%= installation %></li>
-          <% end %>
-        </ul>
-      </div>
+
+  <div class="banner banner-photo" style="background: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 50%), url(<%= cl_image_path @spa.photo.path, quality: "auto", crop: :fill, width: 1280, height: 300 %>);">
+    <div class="banner-content">
+      <h1><%= @spa.name %></h1>
     </div>
   </div>
-  <div class="col-sm-4">
-
-    <%= render 'bookings/form' %>
-  </div>
-</div>
-
-
-  <%# @spa.bookings.each do |booking| %>
- <!--    <div class="booking">
-      <div class="booking-content"><%#= booking.content %></div>
-
+  <div class = "row">
+    <div class = "col-xs-6">
+      <div id="exTab2" class="container col-xs-12">
+        <ul class="nav nav-tabs">
+          <li class="active"><a  href="#1" data-toggle="tab">Description</a>
+          </li>
+          <li><a href="#2" data-toggle="tab">Equipements et installations</a>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-content ">
+        <div class="tab-pane active" id="1">
+          <p class='spa-description'><%= @spa.description.html_safe %></p>
         </div>
-  <%# end %> -->
+        <div class="tab-pane" id="2">
+          <div class="row amenities">
+            <div class="col-sm-6">
+              <h3>Equipments</h3>
+              <ul>
+                <% @spa.equipments.each do |equipment| %>
+                <li><%= equipment %></li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="col-sm-6">
+              <h3>Installations</h3>
+              <ul>
+                <% @spa.installations.each do |installation| %>
+                <li><%= installation %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <h3 class = "massages-title text-center">Massages</h3>
+      <%= render 'bookings/form' %>
+    </div>
+  </div>
 
-
+<%# @spa.bookings.each do |booking| %>
+<!--    <div class="booking">
+  <div class="booking-content"><%#= booking.content %></div>
+</div>
+<%# end %> -->

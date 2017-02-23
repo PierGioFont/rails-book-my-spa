@@ -4,7 +4,7 @@
   <div class="banner-content">
     <h1>SPADIUM</h1>
     <p>Rent unique places to stay enjoy a spa.</p>
-      <div class="container text-center">
+      <div class="container relaxing-moment text-center">
         <form class="form-spabnb" action=<%= spas_path %>>
           <div class="form-location">
             <Label>Where</Label>
@@ -44,7 +44,7 @@
 <!-- Your cards code -->
 <div class="wrapper-grey padded">
   <div class="container">
-    <h2 class="text-center">Your next relaxing moment</h2>
+    <h2 class="relaxing-moment text-center">Your next relaxing moment</h2>
     <div class="row">
       <% @spas.each do |spa| %>
       <div class="col-xs-12 col-md-4">
@@ -59,6 +59,7 @@
     </div>
   </div>
 </div>
+
 
 
 
