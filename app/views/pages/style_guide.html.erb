@@ -10,9 +10,7 @@
         <p class="lead">Basic Bootstrap</p>
       </div>
       <div class="col-lg-4 col-md-5 col-sm-6">
-        <div class="sponsor">
-          <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=bootswatchcom" id="_carbonads_js"></script>
-        </div>
+
       </div>
     </div>
     <div class="row">
@@ -32,6 +30,33 @@
       </div>
     </div>
   </div>
+
+  <form class="form-spabnb" action="/spas">
+    <div class="form-location">
+      <label>Where</label>
+      <input type="text" class="form-control input-lg" id="where" name="where" placeholder="Bruxelles, Bordeaux, Milan" autocomplete="off">
+    </div>
+    <div class="form-dates">
+      <label>Dates</label>
+      <div class="form-checkinout">
+        <input type="text" class="form-control datepicker input-lg" data-provide="datepicker" name="checkin" placeholder="checkin">
+
+        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+        <input type="text" class="form-control datepicker input-lg" data-provide="datepicker" name="checkout" placeholder="checkout">
+      </div>
+    </div>
+    <div class="form-guests">
+      <label>Guests</label>
+      <select class="form-control input-lg" id="nbguest" name="guests">
+        <option value="1">1 guest</option>
+        <option value="2">2 guests</option>
+        <option value="3">3 guests</option>
+      </select>
+    </div>
+    <div class="form-search">
+      <button type="submit" class="btn btn-danger btn-lg">Search</button>
+    </div>
+  </form>
 
       <!-- Navbar
       ================================================== -->
