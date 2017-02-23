@@ -47,7 +47,7 @@
                     <h4><%= spa.name.capitalize %></h4>
                 </div>
                 <%= render 'shared/stars', rating: 3.5 %>
-                <div class="card-distance">5 km</div>
+                <div class="card-distance"><%= spa.distance %> km</div>
                 <div class="card-description"><p class="address-spa"><%= spa.address %></p></div>
             </div>
           <% end %>

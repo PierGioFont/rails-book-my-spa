@@ -1,5 +1,24 @@
-<h1 class = "my_spas">My spas</h1>
-<% @spas.each do |spa| %>
-  <h3><%= spa.name %></h3>
-  <p><%= spa.address %></p>
-<% end %>
+<div class="container">
+  <h1 class="text-center">My spas</h1>
+  <ul class="list-unstyled">
+    <% @spas.each do |spa| %>
+      <li class="booking">
+        <% if spa.photo? %>
+          <%= cl_image_tag spa.photo.path, width: 175, class: "product-image" %>
+        <% end %>
+          <div class="booking-body">
+            <h3><%= spa.name %></h3>
+            <p><%= spa.address %></p>
+          </div>
+          <div >
+            <%= link_to admin_spa_bookings_path(spa), class: "btn btn-primary" do %>
+              <i class="fa fa-calendar-o"></i>
+            <% end %>
+          </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
+
