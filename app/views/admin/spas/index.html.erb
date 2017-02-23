@@ -4,7 +4,7 @@
     <% @spas.each do |spa| %>
       <li class="booking">
         <% if spa.photo? %>
-          <%= cl_image_tag spa.photo.path, width: 175, class: "product-image" %>
+          <%= cl_image_tag spa.photo.path, width: 175, class: "booking-image" %>
         <% end %>
           <div class="booking-body">
             <h3><%= spa.name %></h3>
