@@ -10,17 +10,15 @@
 
 .booking-body {
   flex: 1 1 auto;
+  margin-left: 10px;
+  width: fit-content;
   h3 {
     font-weight: bold;
     font-size: 23px;
-    margin-top: 0;
-    margin-left: 10px;
   }
   p {
     font-weight: lighter;
     color: #999999;
-    margin-bottom: 0;
-    margin-left: 10px;
   }
 }
 
@@ -48,6 +46,7 @@
   }
 }
 
+
 .booking-controls-hidden a {
   color: transparent;
   font-size: 15px;
@@ -67,6 +66,13 @@
   color: #E6E6E6;
 }
 
-.booking-date {
-  margin-right: 10px;
+.booking-delete {
+  margin-left: 50px;
 }
+
+.booking-date {
+  margin-right: 70px;
+  margin-left: 20px;
+}
+
+

@@ -28,6 +28,11 @@ class User < ApplicationRecord
     return user
   end
 
+  def admin?
+    # should be optimize in the future with a proper role saved in db
+    self.spas.size > 0
+  end
+
   private
 
   def send_welcome_email

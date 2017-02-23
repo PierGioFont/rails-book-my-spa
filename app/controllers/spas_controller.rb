@@ -1,40 +1,36 @@
 class SpasController < ApplicationController
-  before_action :set_spa, only: [:show]
+  before_action :set_spa, only: [:show, :edit]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :require_admin!
 
   def index
     if params['where'].nil? || params['where'].empty?
       @spas = Spa.all
-    # elsif params['dist'].nil?
-    #   @spas = Spa.where("lower(address) LIKE ? ", "%#{params['where'].downcase}%")
     else
-      # distance = 100 if params['dist'].empty?
-      distance = 101
-      @spas = Spa.near(params['where'], distance)
-      @spas = Spa.where("lower(address) LIKE ? ", "%#{params['where'].downcase}%") if @spas.empty?
-
-      # @flats = Flat.where.not(latitude: nil, longitude: nil)
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { spa: spa })
-      if @spas.empty?
-        flash[:alert]= "No Spa found with this criteria"
-        redirect_to root_path
-      end
+      limit = 100 if params['dist'].nil? || params['dist'].empty?
+      @spas = Spa.near(params['where'], limit)
+    end
+    if @spas.empty?
+      flash[:alert]= "No Spa found with this criteria"
+      redirect_to root_path #spas_path
     end
     @hash = Gmaps4rails.build_markers(@spas) do |spa, marker|
       marker.lat spa.latitude
       marker.lng spa.longitude
+      marker.infowindow render_to_string(partial: "/shared/map_box", locals: { spa: spa })
     end
     find_relative_distances(params['where'])
   end
 
   def show
     @booking = Booking.new
-
   end
 
   def new
     @spa = Spa.new
   end
+
+
 
   private
 
@@ -44,12 +40,10 @@ class SpasController < ApplicationController
 
   def find_relative_distances(centre)
     location = Geocoder.coordinates(centre)
-    @spas.each do |spa|
-      distance = Geocoder::Calculations.distance_between(location, [spa.latitude, spa.longitude])
-      # spa.distance = distance
-
-      spa.distance = distance.truncate unless distance.nan?
+    if location
+      @spas.each do |spa|
+        spa.distance = Geocoder::Calculations.distance_between(location, [spa.latitude, spa.longitude]).truncate
+      end
     end
-    #raise
   end
 end
