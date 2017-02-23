@@ -9,7 +9,7 @@ class SpasController < ApplicationController
     else
       limit = 100 if params['dist'].nil? || params['dist'].empty?
       @spas = Spa.near(params['where'], limit)
-      # @spas = Spa.where(" address LIKE ?", "%#{params['where']}%")
+      # @spas = Spa.where(" lower(address) LIKE ?", "%#{params['where'].downcase}%")
     end
     if @spas.empty?
       flash[:alert]= "No Spa found with this criteria"
