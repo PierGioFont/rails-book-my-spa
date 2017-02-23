@@ -1,37 +1,45 @@
 <% content_for :title_tag do %>
-  Spadium : my bookings
+Spadium : my bookings
 <% end %>
 
 <div class="container">
   <h1 class="text-center">My upcoming bookings</h1>
   <ul class="unstyled-list">
     <% @bookings.each do |booking| %>
-      <li class="booking">
-          <div class="booking-image">
-            <% if booking.spa.photo? %>
-              <%= cl_image_tag booking.spa.photo.path, width: 175, class: 'booking-image'%>
-            <% end %>
-          </div>
-            <%#= booking.spa.name %>
-           <div class="booking-body">
-             <h3><%= booking.massage.name %></h3>
-             <p><%= booking.massage.description %></p>
-          </div>
-        <div class="booking-date">
-          <%= booking.date %>
-        </div>
-          <div class="booking-review">
-            <%=render 'bookings/form_review', new_review: booking %>
-          </div>
-          <div class="booking-delete">
-            <%= link_to booking , method: :delete,
-              class: "btn btn-warning", data:{confirm: "Are you sure?"} do %>
-              <i class="fa fa-times"></i> Cancel my booking
-            <% end %>
-          </div>
-      </li>
-    <% end %>
-  </ul>
+    <li class="booking">
+      <div class="booking-image">
+        <% if booking.spa.photo? %>
+        <%= cl_image_tag booking.spa.photo.path, width: 175, height: 120, crop: :scale, class: 'booking-image'%>
+        <% end %>
+      </div>
+      <%#= booking.spa.name %>
+      <div class="booking-body">
+       <h3><%= booking.massage.name %></h3>
+       <p><%= booking.massage.spa.name.capitalize %></p>
+       <p><%= booking.massage.spa.address %></p>
+
+     </div>
+     <div class="booking-date">
+      <%= booking.date %>
+    </div>
+
+    <div class="booking-delete">
+      <%= link_to booking , method: :delete,
+      class: "btn btn-danger btn-block ", data:{confirm: "Are you sure?"} do %>
+        <i class="fa fa-times"></i> Cancel
+        <!-- Cancel my booking -->
+
+      <% end %>
+      <button class="btn btn-primary btn-block text-left bnt-lg" data-toggle="modal" data-target="#review">
+        <i class="fa fa-edit"></i> Rate your stay
+      </button>
+    </div>
+  </li>
+    <%=render 'bookings/form_review', booking: booking %>
+  <div class="booking-review">
+  </div>
+  <% end %>
+</ul>
 </div>
 
 
