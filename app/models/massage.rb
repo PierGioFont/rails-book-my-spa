@@ -5,6 +5,7 @@ class Massage < ApplicationRecord
   has_one :booking
   validates :name, presence: true
   has_many :users, through: :bookings
+  has_many :bookings
 
 
   def set_defaults

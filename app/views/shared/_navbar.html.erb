@@ -43,8 +43,10 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <% if current_user.spas.size > 0 %>
+                <%= link_to admin_spas_path do %>
+                  <i class="fa fa-home"></i>  <%= t(".profile", default: "My spas") %>
+                <% end %>
               <% end %>
             </li>
             <li>
