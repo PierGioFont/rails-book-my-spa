@@ -3,12 +3,80 @@
   // margin-top: 40px;
   // margin-right: 30px;
   height: 100%;
-  border-radius: 3px;
-  box-shadow: $thin-shadow;
-  background-color: $gray-lighter;
+  background-color: white;
+  margin-right: 20px;
   h3{
     font-size: 18px;
-    font-weight: bold;
+  }
+  p {
+  font-size: 16px;
   }
 
 }
+
+input[type="radio"] {
+  display: none;
+}
+
+
+
+label {
+    display: block;
+    width: 100%;
+    font-weight: normal;
+}
+
+label > i {
+  display: none;
+}
+
+input[type="radio"]:checked + label {
+  background: #ECEDED;
+}
+
+input[type="radio"]:checked + label > i {
+   display: inline;
+
+}
+.radio-enhanced{
+  border-top: 2px solid #e8ebeb;
+  label{
+  margin: 0px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px;
+  }
+  h3, p{
+    margin: 0;
+    padding: 0;
+  }
+.radio-enhanced-content{
+    flex: 1 0 30%;
+  }
+
+.radio-enhanced-price {
+    margin: 20px;
+  }
+}
+
+.plus {
+  color: white;
+}
+
+.radio-enhanced:hover {
+  background: #ECEDED;
+}
+
+
+.radio-enhanced:hover .plus {
+  display: block;
+  color: green;
+}
+
+.radio-enhanced:checked .plus {
+  display: block;
+  color: green;
+}
+
+

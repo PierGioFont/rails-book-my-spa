@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :require_admin!
 
+  skip_before_action :require_admin!, if: :devise_controller?
+
 
   def require_admin!
     if current_user

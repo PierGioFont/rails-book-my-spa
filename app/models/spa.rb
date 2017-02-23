@@ -8,6 +8,7 @@ class Spa < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   has_many :bookings, through: :massages
+  include Bootsy::Container
 
   def equipments
     self.amenities['equipments'].split(';')

@@ -4,16 +4,20 @@
     <% @spas.each do |spa| %>
       <li class="booking">
         <% if spa.photo? %>
-          <%= cl_image_tag spa.photo.path, width: 175, class: "product-image" %>
+          <%= cl_image_tag spa.photo.path, width: 175, class: "booking-image" %>
         <% end %>
           <div class="booking-body">
             <h3><%= spa.name %></h3>
             <p><%= spa.address %></p>
           </div>
-          <div >
-            <%= link_to admin_spa_bookings_path(spa), class: "btn btn-primary" do %>
-              <i class="fa fa-calendar-o"></i>
+          <div class="booking-controls">
+            <%= link_to admin_spa_bookings_path(spa) do %>
+              <i class="fa fa-calendar-o fa-lg"></i>
             <% end %>
+            <%= link_to edit_admin_spa_path(spa) do %>
+              <i class="fa fa-edit fa-lg"></i>
+            <% end %>
+
           </div>
       </li>
     <% end %>

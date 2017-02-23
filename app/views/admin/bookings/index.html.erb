@@ -4,7 +4,7 @@
     <% @bookings.each do |booking| %>
       <li class="booking">
         <% if booking.spa.photo? %>
-          <%= cl_image_tag booking.spa.photo.path, width: 175, class: "product-image" %>
+          <%= cl_image_tag booking.spa.photo.path, width: 175, class: "booking-image" %>
         <% end %>
         <div class="booking-body">
           <h3><%= booking.massage.name %></h3>

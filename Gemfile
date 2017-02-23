@@ -23,6 +23,7 @@ gem "coffee-rails"
 gem 'omniauth-facebook'
 gem "gmaps4rails"
 gem "geocoder"
+gem 'bootsy'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
