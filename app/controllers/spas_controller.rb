@@ -1,16 +1,14 @@
 class SpasController < ApplicationController
   before_action :set_spa, only: [:show]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :require_admin!
 
   def index
     if params['where'].nil? || params['where'].empty?
       @spas = Spa.all
-    # elsif params['dist'].nil?
-    #   @spas = Spa.where("lower(address) LIKE ? ", "%#{params['where'].downcase}%")
     else
       limit = 100 if params['dist'].nil? || params['dist'].empty?
       @spas = Spa.near(params['where'], limit)
-      # @flats = Flat.where.not(latitude: nil, longitude: nil)
     end
     if @spas.empty?
       flash[:alert]= "No Spa found with this criteria"
@@ -45,6 +43,5 @@ class SpasController < ApplicationController
         spa.distance = Geocoder::Calculations.distance_between(location, [spa.latitude, spa.longitude]).truncate
       end
     end
-    #raise
   end
 end
