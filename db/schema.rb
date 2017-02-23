@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222101511) do
+ActiveRecord::Schema.define(version: 20170223105117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,20 @@ ActiveRecord::Schema.define(version: 20170222101511) do
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
 
+  create_table "bootsy_image_galleries", force: :cascade do |t|
+    t.string   "bootsy_resource_type"
+    t.integer  "bootsy_resource_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bootsy_images", force: :cascade do |t|
+    t.string   "image_file"
+    t.integer  "image_gallery_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "massages", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -53,13 +67,6 @@ ActiveRecord::Schema.define(version: 20170222101511) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["spa_id"], name: "index_massages_on_spa_id", using: :btree
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.string   "content"
-    t.integer  "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "spas", force: :cascade do |t|

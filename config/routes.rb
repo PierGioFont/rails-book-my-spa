@@ -10,9 +10,10 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount Attachinary::Engine => "/attachinary"
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
 
   namespace :admin do
-    resources :spas, only: [:index] do
+    resources :spas, only: [:index, :edit, :update] do
       resources :bookings, only: [:index]
     end
   end
