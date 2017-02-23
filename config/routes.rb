@@ -17,4 +17,5 @@ Rails.application.routes.draw do
       resources :bookings, only: [:index]
     end
   end
+  get '/style', to: 'pages#style_guide'
 end

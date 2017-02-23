@@ -14,9 +14,6 @@
 
 }
 
-input[type="radio"] {
-  display: none;
-}
 
 
 
@@ -30,14 +27,6 @@ label > i {
   display: none;
 }
 
-input[type="radio"]:checked + label {
-  background: #ECEDED;
-}
-
-input[type="radio"]:checked + label > i {
-   display: inline;
-
-}
 .radio-enhanced{
   border-top: 2px solid #e8ebeb;
   label{
@@ -47,6 +36,16 @@ input[type="radio"]:checked + label > i {
   align-items: center;
   padding: 30px 20px;
   }
+  input[type="radio"]:checked + label {
+    background: #ECEDED;
+  }
+  input[type="radio"]:checked + label > i {
+     display: inline;
+  }
+  input[type="radio"] {
+    display: none;
+  }
+
   h3, p{
     margin: 0;
     padding: 0;
