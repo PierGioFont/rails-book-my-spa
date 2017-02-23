@@ -1,26 +1,50 @@
 // Your footer style
 #footer {
-  // position: absolute;
-  // bottom: 0;
-  // width: 100%;
-
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 6em;
+  left:0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   background: #222222;
   padding: 30px 0;
   color: #CCCCCC;
   margin-top: 10px;
-  a {
-    color: #CCCCCC;
-    font-size: 35px;
-    margin: 10px;
-  }
 
-  a:hover {
-    color: yellow;
+  .footer-icons{
+    flex: 1 0 auto;
+    margin: 0 50px;
+    a {
+      color: #CCCCCC;
+      font-size: 35px;
+      margin: 0 10px;
+    }
+    a:hover {
+      color: yellow;
+    }
   }
-  .col-xs-4 {
-    width: 33.33333333%;
+  .footer-baseline{
+    flex: 1 0 auto;
+    margin: 0 50px;
   }
 }
 
+#wrapper-layout {
+  min-height:100%;
+  position:relative;
+}
 
+#content {
+  min-height: 100%;
+  height: auto !important; /*min-height hack*/
+  height: 100%;            /*min-height hack*/
+  margin-bottom: -6em;
+}
+
+html, body {
+  height: 100%;
+}
 
