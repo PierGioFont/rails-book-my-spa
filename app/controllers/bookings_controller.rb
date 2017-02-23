@@ -17,11 +17,11 @@ class BookingsController < ApplicationController
     @massage = Massage.find(params[:massage_id])
   end
 
-
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     if @booking.save
+      BookingMailer.booking_confirmation(@booking).deliver_now
       redirect_to bookings_path, notice: 'Booking was successfully created.'
     else
       @spa = Spa.find(params[:spa_id])
@@ -60,3 +60,4 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:date, :time_in, :massage_id, :spa_id, :content, :rating )
   end
 end
+
