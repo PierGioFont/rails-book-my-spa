@@ -14,21 +14,15 @@
 
 .banner-photo {
   height: 400px;
-  object-fit: cover;
+  background-position: center center;
 }
 
-.massages-title {
-  margin-top: 10px;
-}
+//.massages-title {
+//  margin-top: 10px;
+//}
 
 
 
-
-#exTab1 .tab-content {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
-}
 
 #exTab2 h3 {
   color : white;
@@ -36,20 +30,35 @@
   padding : 5px 15px;
 }
 
+.booking-and-description {
+  margin-top: 20px;
+}
+
+.tab-content {
+  margin-top: 20px;
+}
+
+.tab-content > .active {
+  margin-top: 70px;
+}
+
+.nav-tabs > li > a {
+  color: #555555;
+}
+
+.nav-tabs > li.active > a {
+  color: #32B796;
+  font-weight: bold;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #ddd;
+}
 /* remove border radius for the tab */
 
-#exTab1 .nav-pills > li > a {
-  border-radius: 0;
-}
+
+
 
 /* change border radius for the tab , apply corners on top*/
 
-#exTab3 .nav-pills > li > a {
-  border-radius: 4px 4px 0 0 ;
-}
 
-#exTab3 .tab-content {
-  color : white;
-  background-color: #428bca;
-  padding : 5px 15px;
-}
