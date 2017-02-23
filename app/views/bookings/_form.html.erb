@@ -3,7 +3,7 @@
     <%#= f.error_notification %>
     <div class="form-inputs">
       <%#= f.input :massage_id, collection: @spa.massages, selected: @massage, as: :radio_buttons %>
-      <ul>
+      <ul class='test'>
       <% @spa.massages.each do |massage| %>
           <div class="radio-enhanced">
             <input type="radio" id="<%= massage.id %>" name="booking[massage_id]" value="<%= massage.id %>" />
@@ -18,12 +18,34 @@
           </div>
         <% end %>
       </ul>
-      <%= f.input :date, label: "Date", required: false %>
-      <%= f.input :time_in, as: :time, label: "Heure", required: false%>
-    </div>
+
+
+
+
+<div class="test2">
+
+      <%= f.input :date, label: "Date", required: false, as: :string, input_html: { class: "datepicker", 'data-provide' => 'datepicker' }  %>
+      <%= f.input :time_in, as: :time, label: "Heure", required: false, as: :text, input_html: { class: "datepicker", 'data-provide' => 'datepicker' } %>
+
 
     <div class="form-actions">
-      <%= f.button :submit, class: "btn btn-danger btn-lg btn-block " %>
+      <%= f.button :submit, class: "btn btn-success btn-lg btn-block" %>
     </div>
+
+</div>
+
+
+
+
+
   <% end %>
 </div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js" %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.datepicker').datepicker();
+    });
+  </script>
+<% end %>

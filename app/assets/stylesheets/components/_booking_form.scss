@@ -39,7 +39,7 @@ input[type="radio"]:checked + label > i {
 
 }
 .radio-enhanced{
-  border-top: 2px solid #e8ebeb;
+  border-top: 1px solid #ddd;
   label{
   margin: 0px;
   display:flex;
@@ -71,12 +71,35 @@ input[type="radio"]:checked + label > i {
 
 .radio-enhanced:hover .plus {
   display: block;
-  color: green;
+  color: #32B796;
 }
 
 .radio-enhanced:checked .plus {
   display: block;
-  color: green;
+  color: #32B796;
+}
+
+.test {
+  margin-left: 0;
+}
+
+.test2 {
+  padding-left: 57px;
+}
+
+a:hover, a:focus {
+    color: black;
+}
+
+.massages-title {
+  color: gray;
+  margin: 0;
+  text-align: center;
+  p {
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+  }
 }
 
 

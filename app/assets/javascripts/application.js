@@ -9,3 +9,7 @@
 //= require attachinary
 //= require_tree .
 
+$(".radio-enhanced").click(function(){
+  $('.plus').css('color', 'white');
+  $(this).find('.plus').css('color', '#32B796');
+})
