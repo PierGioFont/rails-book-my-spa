@@ -12,8 +12,9 @@
        <p><%= booking.massage.spa.name.capitalize %></p>
        <p><%= booking.massage.spa.address %></p>
       </div>
-      <div class="booking-date">
-        <%= booking.date %>
+      <div class="booking-date text-muted">
+        <%= booking.date.strftime("%e %B %Y") %>
+        <%= booking.time_in.strftime("at %l %p")%>
       </div>
 
       <div class="booking-delete">
