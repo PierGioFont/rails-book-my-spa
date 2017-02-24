@@ -24,7 +24,7 @@
           </li>
         </ul>
       </div>
-      <div class="tab-content ">
+      <div class="tab-content">
         <div class="tab-pane active" id="1">
           <p class='spa-description'><%= @spa.description.html_safe %></p>
         </div>
@@ -50,12 +50,19 @@
         </div>
         <div class="tab-pane" id="3">
           <div class="row amenities">
-            <div class="col-sm-6 reviews-show">
-              <ul>
+            <div class="col-sm-12 reviews-show">
+              <ul class="list-unstyled">
                 <% @spa.bookings.each do |booking| %>
-                  <li class="list-unstyled">
-                    <p><%= render 'shared/stars', rating: booking.rating.to_f %></p>
-                    <p><%= booking.content %></p>
+                  <li >
+                    <div class="unique-review">
+                      <div class="avatar-show">
+                        <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+                      </div>
+                      <div class="stars-and-content">
+                        <p><%= render 'shared/stars', rating: booking.rating.to_f %></p>
+                        <p><%= booking.content %></p>
+                      </div>
+                    </div>
                   </li>
                   <hr>
                 <% end %>
