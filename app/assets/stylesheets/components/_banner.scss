@@ -7,7 +7,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position:relative;
+  .banner-stars {
+    //align-self: flex-end;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    //margin-left: auto;
+    //margin-bottom: 30px;
+    //margin-right: 30px;
+    font-size: 30px;
+  }
 }
+
 .banner h1 {
   font-size: 50px;
   font-weight: bold;
