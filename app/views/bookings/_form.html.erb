@@ -19,12 +19,9 @@
         <% end %>
       </ul>
 
-
-
-
 <div class="test2">
 
-      <%= f.input :date, label: "Date", required: false, as: :string, input_html: { class: "datepicker", 'data-provide' => 'datepicker' }  %>
+      <%= f.input :date, label: "Date", required: false, as: :string, input_html: { class: "datepicker", 'data-provide' => 'datepicker', 'data-date-format' => 'dd/mm/yyyy' }  %>
       <%#= f.input :time_in, as: :time, label: "Heure", required: false, as: :text, input_html: { class: "datepicker", 'data-provide' => 'datepicker' } %>
 
       <%= f.input :time_in, as: :time, label: "Heure", required: false %>
