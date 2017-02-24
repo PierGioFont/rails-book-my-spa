@@ -15,7 +15,10 @@
             <i class="fa fa-eye fa-lg"></i>
           <% end %>
           <%= link_to admin_spa_bookings_path(spa) do %>
-            <i class="fa fa-calendar-o fa-lg"></i>
+            <div class="badge-container">
+              <i class="fa fa-calendar-check-o"></i>
+              <div class="badge badge-blue"><%= spa.bookings.size %></div>
+          </div>
           <% end %>
           <%= link_to edit_admin_spa_path(spa) do %>
             <i class="fa fa-edit fa-lg"></i>

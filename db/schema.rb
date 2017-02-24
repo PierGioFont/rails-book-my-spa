@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223174221) do
+ActiveRecord::Schema.define(version: 20170224135526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,10 +37,11 @@ ActiveRecord::Schema.define(version: 20170223174221) do
     t.datetime "time_out"
     t.integer  "user_id"
     t.integer  "massage_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "rating"
     t.text     "content"
+    t.integer  "booking_number", default: 0
     t.index ["massage_id"], name: "index_bookings_on_massage_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
@@ -77,28 +78,29 @@ ActiveRecord::Schema.define(version: 20170223174221) do
     t.text     "description"
     t.string   "name"
     t.integer  "user_id"
-    t.hstore   "amenities",   default: {}, null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.hstore   "amenities",      default: {}, null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.float    "latitude"
     t.float    "longitude"
     t.float    "avg_rating"
+    t.integer  "booking_number", default: 0
     t.index ["user_id"], name: "index_spas_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_picture_url"
@@ -106,8 +108,6 @@ ActiveRecord::Schema.define(version: 20170223174221) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
-    t.boolean  "email_confirmed",        default: false
-    t.string   "confirm_token"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
