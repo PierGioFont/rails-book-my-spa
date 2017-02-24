@@ -6,4 +6,12 @@ class Booking < ApplicationRecord
   validates :time_in, presence: true
   validates :massage_id, presence: true
   # validates :time_out, presence: true
+
+  def reviewed?
+    if content.nil? || content.empty?
+      return false
+    else
+      return true
+    end
+  end
 end

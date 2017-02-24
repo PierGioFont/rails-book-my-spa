@@ -4,26 +4,36 @@
   padding: 20px;
   border-radius: 3px;
   transition: all 0.15s ease;
+
+  /* Body design */
+  .booking-body {
+    flex: 1 1 auto;
+    margin-left: 10px;
+    width: fit-content;
+    text-align: left;
+
+    h3 {
+      font-weight: bold;
+      font-size: 23px;
+    }
+    p {
+      font-weight: lighter;
+      color: #999999;
+      line-height: 1.5em;
+    }
+  }
+  .booking-review {
+    position: relative;
+    .review-rating{
+      position
+      .star-active{
+        color: $yellow;
+      }
+    }
+  }
 }
 
-/* Body design */
 
-.booking-body {
-  flex: 1 1 auto;
-  margin-left: 10px;
-  width: fit-content;
-  text-align: left;
-
-  h3 {
-    font-weight: bold;
-    font-size: 23px;
-  }
-  p {
-    font-weight: lighter;
-    color: #999999;
-    line-height: 1.5em;
-  }
-}
 
 /* booking image */
 
@@ -70,6 +80,7 @@
 }
 
 .booking-delete {
+  flex: 0 0 130px;
   margin-left: 50px;
 }
 

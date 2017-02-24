@@ -6,6 +6,12 @@
   position: relative;
   border-radius: 5px;
   margin-bottom: 20px;
+
+  .review-rating{
+    position: absolute;
+    top:10px;
+    right: 10px;
+  }
 }
 .card-user {
   position: absolute;
@@ -42,11 +48,6 @@
   justify-content: space-around;
 }
 
-.review-rating{
-  position: absolute;
-  top:10px;
-  right: 10px;
-}
 .card-description h2 {
   font-size: 22px;
 }

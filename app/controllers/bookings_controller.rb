@@ -32,9 +32,11 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.content = params[:content]
-    @booking.rating = params[:rating]
-    if @booking.save
+    # byebug
+    # @booking.content = params[:content]
+    # @booking.rating = params[:rating]
+
+    if @booking.update(booking_params)
       flash[:notice] = "review succesfully added"
       redirect_to bookings_path
     else

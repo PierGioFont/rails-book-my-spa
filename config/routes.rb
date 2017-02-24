@@ -18,4 +18,5 @@ Rails.application.routes.draw do
     end
   end
   get '/style', to: 'pages#style_guide'
+  get '/login-template', to: 'pages#login_template'
 end

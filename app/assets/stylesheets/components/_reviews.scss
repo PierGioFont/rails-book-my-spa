@@ -3,36 +3,36 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-// .reviews{
-//   margin-top: 50px;
-//   color: $gray-dark;
-//   // border-radius: 4px;
-//   // box-shadow: $border-shadow;
+.reviews{
+  margin-top: 50px;
+  color: $gray-dark;
+  // border-radius: 4px;
+  // box-shadow: $border-shadow;
 
-//   .review-form{
-//     margin: 20px;
-//     background-color: $gray;
-//     padding: 20px;
-//     border-radius: 4px;
-//     box-shadow: $border-shadow;
-//   }
-//   .review{
-//     display: flex;
-//     justify-content: space-between;
-//     background-color: #FFF;
-//     padding: 20px;
-//     margin: 20px;
-//     // margin: 10px;
-//     box-shadow: $border-shadow;
-//     border-radius: 4px;
-//   }
-// }
+  .review-form{
+    margin: 20px;
+    background-color: $gray;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: $border-shadow;
+  }
+  .review{
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFF;
+    padding: 20px;
+    margin: 20px;
+    // margin: 10px;
+    box-shadow: $border-shadow;
+    border-radius: 4px;
+  }
+}
 
-// .review-rating{
-//   .star-active{
-//     color: $yellow;
-//   }
-// }
+.review-rating{
+  .star-active{
+    color: $yellow;
+  }
+}
 
 // .rating {
 //   direction: rtl;
