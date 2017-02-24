@@ -7,6 +7,9 @@
       <div class="banner-content">
         <h1><%= @spa.name %></h1>
       </div>
+      <div class="banner-stars">
+        <%= render 'shared/stars', rating: @spa.avg_rating.nil? ? 0 : @spa.avg_rating %>
+      </div>
     </div>
 
 
