@@ -14,9 +14,6 @@
 
 }
 
-input[type="radio"] {
-  display: none;
-}
 
 
 
@@ -30,16 +27,8 @@ label > i {
   display: none;
 }
 
-input[type="radio"]:checked + label {
-  background: #ECEDED;
-}
-
-input[type="radio"]:checked + label > i {
-   display: inline;
-
-}
 .radio-enhanced{
-  border-top: 2px solid #e8ebeb;
+  border-top: 1px solid #ddd;
   label{
   margin: 0px;
   display:flex;
@@ -47,6 +36,16 @@ input[type="radio"]:checked + label > i {
   align-items: center;
   padding: 30px 20px;
   }
+  input[type="radio"]:checked + label {
+    background: #ECEDED;
+  }
+  input[type="radio"]:checked + label > i {
+     display: inline;
+  }
+  input[type="radio"] {
+    display: none;
+  }
+
   h3, p{
     margin: 0;
     padding: 0;
@@ -71,12 +70,35 @@ input[type="radio"]:checked + label > i {
 
 .radio-enhanced:hover .plus {
   display: block;
-  color: green;
+  color: #32B796;
 }
 
 .radio-enhanced:checked .plus {
   display: block;
-  color: green;
+  color: #32B796;
+}
+
+.test {
+  margin-left: 0;
+}
+
+.test2 {
+  padding-left: 57px;
+}
+
+a:hover, a:focus {
+    color: black;
+}
+
+.massages-title {
+  color: gray;
+  margin: 0;
+  text-align: center;
+  p {
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+  }
 }
 
 

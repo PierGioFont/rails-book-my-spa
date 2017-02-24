@@ -95,13 +95,16 @@
         content: "\f005";
         // color: #e3cf7a;
         color: $yellow;
+        background-color: white !important;
 
         /*text-shadow: 0 0 1px #333;*/
       }
       + label:hover {
         ~ label:before, &:before {
           content: "\f005";
-          color: #e3cf7a;
+          // color: #e3cf7a;
+          color: $yellow;
+
           /*text-shadow: 0 0 1px #333;*/
         }
       }
@@ -130,3 +133,4 @@
     }
   }
 }
+

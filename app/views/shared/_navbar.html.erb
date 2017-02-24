@@ -39,7 +39,14 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to bookings_path do %>
-                <i class="fa fa-calendar-check-o"></i> <%= t(".profile", default: "My bookings") %>
+                <!-- <div style="float:left"> -->
+                  <i class="fa fa-calendar-check-o"></i> <%= t(".profile", default: "My bookings") %>
+                <!-- </div> -->
+                <% if current_user.bookings.size %>
+                  <span class="label label-primary">  <%= current_user.bookings.size %></span>
+                <% end %>
+                <!-- <span class="badge">2</span> -->
+                <!-- <div style="clear:both"></div> -->
               <% end %>
             </li>
             <li>

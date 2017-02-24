@@ -1,18 +1,28 @@
-<div class="text-center logs">
-  <h2>Log in</h2>
-</div>
+<div class="background" style="background: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.2) 50%), url(<%= image_path 'fleur-de-lotus.jpg'%>); background-repeat: no-repeat; background-size: cover;">
+  <div class="glass">
+    <div class="carde text-center" >
+      <div class="text-center logs">
+        <p>Log in</p>
+      </div>
 
-<div class="container logs-container">
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :email, required: false, autofocus: true %>
-      <%= f.input :password, required: false %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <div class="container logs-container text-center">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :email, required: false, autofocus: true, input_html: { class: "input-lg" } %>
+            <%= f.input :password, required: false %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+      </div>
     </div>
 
-      <div class="form-actions text-center log-btn">
-        <%= f.button :submit, "Log in", class: "btn btn-lg btn-danger" %>
+        <div class="container logs-container">
+            <div class="form-actions text-center log-btn">
+              <%= f.button :submit, "Log in", class: "btn btn-lg btn-danger" %>
+            </div>
+        <% end %>
+          <%= render "devise/shared/links" %>
       </div>
-  <% end %>
-    <%= render "devise/shared/links" %>
+  </div>
 </div>
+
+

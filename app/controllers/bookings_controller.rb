@@ -32,10 +32,12 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.content = params[:new_review]['content']
-    @booking.rating = params[:new_review]['rating'].to_i
-    calc_avg_rating unless @booking.rating.nil?
-    if @booking.save
+   # @booking.content = params[:new_review]['content']
+   # @booking.rating = params[:new_review]['rating'].to_i
+    #if @booking.save
+
+    if @booking.update(booking_params)
+      calc_avg_rating unless @booking.rating.nil?
       flash[:notice] = "review succesfully added"
       redirect_to bookings_path
     else
