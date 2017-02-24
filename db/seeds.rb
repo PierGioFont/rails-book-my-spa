@@ -78,7 +78,7 @@ users = User.all
   booking.time_in = Time.now
   booking.content = "super cool ce spa"
   random_review = rand(2)
-  booking.rating = rand(2) + 3 if random_review = 1
+  booking.rating = rand(2) + 3 if random_review == 1
   booking.save
 end
 
