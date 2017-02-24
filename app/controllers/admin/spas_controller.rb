@@ -1,5 +1,7 @@
 class Admin::SpasController < ApplicationController
   before_action :set_spa, only: [:edit, :update]
+  skip_before_action :require_admin!, only: [:new]
+
   def index
     @spas = current_user.spas
   end
