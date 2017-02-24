@@ -20,6 +20,8 @@
           </li>
           <li><a href="#2" data-toggle="tab">Equipements et installations</a>
           </li>
+          <li><a href="#3" data-toggle="tab">Avis</a>
+          </li>
         </ul>
       </div>
       <div class="tab-content ">
@@ -29,7 +31,7 @@
         <div class="tab-pane" id="2">
           <div class="row amenities">
             <div class="col-sm-6">
-              <h3>Equipments</h3>
+              <h4>Equipments</h4>
               <ul>
                 <% @spa.equipments.each do |equipment| %>
                 <li><%= equipment %></li>
@@ -37,10 +39,24 @@
               </ul>
             </div>
             <div class="col-sm-6">
-              <h3>Installations</h3>
+              <h4>Installations</h4>
               <ul>
                 <% @spa.installations.each do |installation| %>
                 <li><%= installation %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="3">
+          <div class="row amenities">
+            <div class="col-sm-6">
+              <ul>
+                <% @spa.bookings.each do |booking| %>
+                  <li class="list-unstyled">
+                    <%= booking.rating %>
+                    <p><%= booking.content %></p>
+                  </li>
                 <% end %>
               </ul>
             </div>
