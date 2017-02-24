@@ -19,7 +19,7 @@ class Spa < ApplicationRecord
   end
 
   def upd_avg_rating(total_rating, bkings_count)
-      self.avg_rating = total_rating / bkings_count
-      self.save
+    avg_rating = total_rating / bkings_count
+    save
   end
 end

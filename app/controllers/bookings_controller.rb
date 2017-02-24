@@ -44,7 +44,7 @@ class BookingsController < ApplicationController
     if @booking.update(booking_params)
       calc_avg_rating unless @booking.rating.nil?
       flash[:notice] = "review succesfully added"
-      redirect_to bookings_path
+      redirect_to bookings_path(anchor: 'past')
     else
       flash[:alert] = "invalid review"
       render :new
