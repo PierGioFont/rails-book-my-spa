@@ -43,17 +43,18 @@
 }
 
 #wrapper-layout {
-  height: 100vh;
+  // height: 100vh;
+  min-height: 100%;
   position:relative;
 }
 
 #content {
-  // min-height: 100%;
-  // height: auto !important; /*min-height hack*/
+  min-height: 100%;
+  height: auto !important; /*min-height hack*/
   height: 100%;            /*min-height hack*/
   width: 100%;
-  position: absolute;
-  // padding-bottom: 6em;
+  // position: absolute;
+  padding-bottom: 6em;
   // margin-bottom: 50px;
 }
 
