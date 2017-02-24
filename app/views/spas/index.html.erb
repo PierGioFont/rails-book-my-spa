@@ -45,7 +45,7 @@
                 <div class="card-category">
                     <h4><%= spa.name.capitalize %></h4>
                 </div>
-                <%= render 'shared/stars', rating: spa.avg_rating.nil? ? 0 : spa.avg_rating %>
+                <%= render 'shared/stars', rating: spa.avg_rating.nil? ? rand(5) : spa.avg_rating %>
                 <div class="card-distance"><%= spa.distance %> km</div>
                 <div class="card-description"><p class="address-spa"><%= spa.address %></p></div>
             </div>
