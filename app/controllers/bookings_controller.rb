@@ -37,10 +37,6 @@ class BookingsController < ApplicationController
   end
 
   def update
-   # @booking.content = params[:new_review]['content']
-   # @booking.rating = params[:new_review]['rating'].to_i
-   #if @booking.save
-
     if @booking.update(booking_params)
       calc_avg_rating unless @booking.rating.nil?
       flash[:notice] = "review succesfully added"
@@ -67,13 +63,7 @@ class BookingsController < ApplicationController
   end
 
   def calc_avg_rating
-    rated_spa = @booking.spa
-    tot_rate = 0
-    rated_spa.bookings.each do |bking|
-      tot_rate += bking.rating unless bking.rating.nil?
-    end
-    #byebug
-    rated_spa.upd_avg_rating(tot_rate+@booking.rating, rated_spa.bookings.count + 1)
+    @booking.spa.upd_avg_rating(@booking.spa[:id])
   end
 end
 
