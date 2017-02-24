@@ -8,9 +8,11 @@
       </div>
       <%#= booking.spa.name %>
       <div class="booking-body">
-       <h3><%= booking.massage.name %></h3>
-       <p><%= booking.massage.spa.name.capitalize %></p>
-       <p><%= booking.massage.spa.address %></p>
+      <%= link_to spa_path(booking.spa), class: 'booking-link' do %>
+         <h3><%= booking.massage.name %></h3>
+         <p><%= booking.massage.spa.name.capitalize %></p>
+         <p><%= booking.massage.spa.address %></p>
+       <% end %>
       </div>
       <div class="booking-date text-muted">
         <%= booking.date.strftime("%e %B %Y") %>
