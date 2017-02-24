@@ -1,4 +1,8 @@
-<div class="modal fade" id="review" tabindex="-1" role="dialog" aria-labelledby="review-modal" aria-hidden="true">
+<button class="btn btn-primary btn-block text-left bnt-lg" data-toggle="modal" data-target="#review<%= booking.id %>">
+  <i class="fa fa-edit"></i> Rate your stay
+</button>
+
+<div class="modal fade" id="review<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="review-modal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <!-- Modal Header -->
