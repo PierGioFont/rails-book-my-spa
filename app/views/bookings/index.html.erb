@@ -19,7 +19,7 @@ Spadium : my bookings
          <p><%= booking.massage.spa.address %></p>
         </div>
         <div class="booking-date">
-          <%= booking.date %>
+          <%= booking.date.strftime("%d/%m/%Y") %>
         </div>
 
         <div class="booking-delete">
@@ -36,7 +36,7 @@ Spadium : my bookings
           <% else %>
             <div class="booking-review">
               <small class="text-muted"><%= booking.content %></small>
-              <p><%= render 'shared/stars', rating: booking.rating.to_f %></p>
+              <p><%= render 'shared/stars', rating: booking.massage.spa.avg_rating %></p>
             </div>
           <% end %>
         </div>

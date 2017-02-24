@@ -34,7 +34,7 @@ class BookingsController < ApplicationController
   def update
    # @booking.content = params[:new_review]['content']
    # @booking.rating = params[:new_review]['rating'].to_i
-    #if @booking.save
+   #if @booking.save
 
     if @booking.update(booking_params)
       calc_avg_rating unless @booking.rating.nil?
