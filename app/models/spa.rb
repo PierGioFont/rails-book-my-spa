@@ -11,11 +11,11 @@ class Spa < ApplicationRecord
   include Bootsy::Container
 
   def equipments
-    self.amenities['equipments'].split(';')
+    self.amenities['equipments'].split(';') unless self.amenities['equipments'].nil?
   end
 
   def installations
-    self.amenities['installations'].split(';')
+    self.amenities['installations'].split(';') unless self.amenities['installations'].nil?
   end
 
   def upd_avg_rating(id_spa)

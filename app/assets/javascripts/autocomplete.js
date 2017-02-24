@@ -26,4 +26,5 @@ function onPlaceChanged() {
 
 google.maps.event.addDomListener(window, 'load', function() {
   initializeAutocomplete('where');
+  initializeAutocomplete($('.address'));
 });

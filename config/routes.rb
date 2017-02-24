@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
 
   namespace :admin do
-    resources :spas, only: [:index, :edit, :update] do
+    resources :spas, only: [:index, :edit, :update, :new, :create] do
       resources :bookings, only: [:index]
     end
   end
