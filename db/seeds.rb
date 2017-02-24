@@ -13,6 +13,10 @@ User.destroy_all
 
 user = User.new(email: 'adrienpoly@gmail.com', password: '123456')
 user.save
+user = User.new(email: 'adrien@gmail.com', password: '123456')
+user.save
+user = User.new(email: 'poly@gmail.com', password: '123456')
+user.save
 
 # spa = Spa.create(name: 'caudalie', user_id: user.id, description: 'super spa dans les vignes', country: 'france')
 
@@ -37,11 +41,13 @@ scrap = JSON.parse(open("db/scrap-data.json","r").read)
 
 case Rails.env
 when "development"
-   scrap = scrap.first(20)
+   scrap = scrap.first(5)
 when "production"
-  scrap = scrap.first(40)
+  scrap = scrap
 end
+users = User.all
 scrap.each do |spa|
+  user = users.sample
   spa['name'] = CGI::unescapeHTML(spa['name'])
   spa['description'] = CGI::unescapeHTML(spa['description'])
   spa['address'] = CGI::unescapeHTML(spa['address'])
@@ -52,9 +58,24 @@ scrap.each do |spa|
   new_spa.user = user
   new_spa.photo_url =  spa['image_url']
   new_spa.save
-  massages.sample(rand(5)+1).each do |massage|
+  massages.sample(rand(4)+2).each do |massage|
     new_massage = Massage.new(massage)
     new_massage.spa = new_spa
     new_massage.save
   end
 end
+
+spas = Spa.all
+users = User.all
+40.times do |i|
+  booking = Booking.new()
+  spa = spas.sample
+  user = users.sample
+  massage = spa.massages.first
+  booking.massage = massage
+  booking.user = user
+  booking.date = Date.today - 15 + rand(30)
+  booking.time_in = Time.now
+  booking.save
+end
+
