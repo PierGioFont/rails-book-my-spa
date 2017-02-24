@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     if @booking.save
-      BookingMailer.booking_confirmation(@booking).deliver_now
+      # BookingMailer.booking_confirmation(@booking).deliver_now
       redirect_to bookings_path, notice: 'Booking was successfully created.'
     else
       @spa = Spa.find(params[:spa_id])
