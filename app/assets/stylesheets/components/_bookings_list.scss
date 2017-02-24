@@ -80,12 +80,14 @@
 }
 
 .booking-delete {
-  flex: 0 0 130px;
+  flex: 0 0 15%;
   margin-left: 50px;
 }
 
 .booking-date {
-  margin-right: 70px;
+  flex: 1 0 auto;
+  text-align: left;
+  margin-right: 20px;
   margin-left: 20px;
 }
 

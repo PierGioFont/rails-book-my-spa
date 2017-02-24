@@ -2,48 +2,26 @@
 Spadium : my bookings
 <% end %>
 
-<div class="container">
-  <h1 class="text-center">My upcoming bookings</h1>
-  <ul class="unstyled-list">
-    <% @bookings.each do |booking| %>
-      <li class="booking">
-        <div class="booking-image">
-          <% if booking.spa.photo? %>
-          <%= cl_image_tag booking.spa.photo.path, width: 175, height: 120, crop: :scale, class: 'booking-image'%>
-          <% end %>
-        </div>
-        <%#= booking.spa.name %>
-        <div class="booking-body">
-         <h3><%= booking.massage.name %></h3>
-         <p><%= booking.massage.spa.name.capitalize %></p>
-         <p><%= booking.massage.spa.address %></p>
-        </div>
-        <div class="booking-date">
-          <%= booking.date.strftime("%d/%m/%Y") %>
-        </div>
 
-        <div class="booking-delete">
-          <%= link_to booking , method: :delete,
-          class: "btn btn-danger btn-block ", data:{confirm: "Are you sure?"} do %>
-          <i class="fa fa-times"></i> Cancel
-          <!-- Cancel my booking -->
-
-          <% end %>
-          <% unless booking.reviewed? %>
-            <button class="btn btn-primary btn-block text-left bnt-lg" data-toggle="modal" data-target="#review">
-              <i class="fa fa-edit"></i> Rate your stay
-            </button>
-          <% else %>
-            <div class="booking-review">
-              <small class="text-muted"><%= booking.content %></small>
-              <p><%= render 'shared/stars', rating: booking.massage.spa.avg_rating %></p>
-            </div>
-          <% end %>
-        </div>
-      </li>
-      <%=render 'bookings/form_review', booking: booking %>
-    <% end %>
+<div class="container margin-top">
+  <!-- tabs title -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#futur" aria-controls="futur" role="tab" data-toggle="tab">Upcoming bookings</a></li>
+    <li role="presentation"><a href="#past" aria-controls="past" role="tab" data-toggle="tab">Past bookings</a></li>
   </ul>
-</div>
 
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="futur">
+      <% if @bookings_futur.size %>
+        <%= render 'bookings', bookings: @bookings_futur, futur: true %>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="past">
+      <% if @bookings_past.size %>
+        <%= render 'bookings', bookings: @bookings_past, futur: false %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
