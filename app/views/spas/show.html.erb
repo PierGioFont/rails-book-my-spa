@@ -31,6 +31,7 @@
         <div class="tab-pane" id="2">
           <div class="row amenities">
             <div class="col-sm-6">
+            <% if @spa.equipments %>
               <h4>Equipments</h4>
               <ul>
                 <% @spa.equipments.each do |equipment| %>
@@ -45,6 +46,7 @@
                 <li><%= installation %></li>
                 <% end %>
               </ul>
+              <% end %>
             </div>
           </div>
         </div>
