@@ -32,8 +32,9 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.content = params[:content]
-    @booking.rating = params[:rating]
+    @booking.content = params[:new_review]['content']
+    @booking.rating = params[:new_review]['rating'].to_i
+    calc_avg_rating unless @booking.rating.nil?
     if @booking.save
       flash[:notice] = "review succesfully added"
       redirect_to bookings_path
@@ -42,8 +43,6 @@ class BookingsController < ApplicationController
       render :new
     end
   end
-
-
 
   def destroy
     @booking.destroy
@@ -58,6 +57,16 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:date, :time_in, :massage_id, :spa_id, :content, :rating )
+  end
+
+  def calc_avg_rating
+    rated_spa = @booking.spa
+    tot_rate = 0
+    rated_spa.bookings.each do |bking|
+      tot_rate += bking.rating unless bking.rating.nil?
+    end
+    #byebug
+    rated_spa.upd_avg_rating(tot_rate+@booking.rating, rated_spa.bookings.count + 1)
   end
 end
 
