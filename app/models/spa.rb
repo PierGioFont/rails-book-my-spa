@@ -27,7 +27,11 @@ class Spa < ApplicationRecord
       tot_rate += bking.rating unless bking.rating.nil?
     end
     #byebug
-    rating_spa.avg_rating = tot_rate / rating_spa.bookings.count unless rating_spa.bookings.count == 0
+    if rating_spa.bookings.count == 0
+      rating_spa.avg_rating = 3
+    else
+      rating_spa.avg_rating = tot_rate / rating_spa.bookings.count
+    end
     rating_spa.save
   end
 end
