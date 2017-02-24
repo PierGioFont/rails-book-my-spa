@@ -61,7 +61,28 @@
 
 .reviews-show {
   margin-top: -40px;
+  margin-left: -15px;
 }
+
+//.review-and-avatar-show {
+//  display: flex;
+//  align-items: inline;
+//}
+
+.unique-review {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .stars-and-content{
+    flex: 0 0 40%;
+  }
+  .avatar-show{
+    flex: 0 0 10%;
+  }
+}
+
+
 /* remove border radius for the tab */
 
 
