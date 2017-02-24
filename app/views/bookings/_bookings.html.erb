@@ -1,0 +1,46 @@
+<ul class="unstyled-list">
+  <% bookings.each do |booking| %>
+    <li class="booking">
+      <div class="booking-image">
+        <% if booking.spa.photo? %>
+        <%= cl_image_tag booking.spa.photo.path, width: 175, height: 120, crop: :scale, class: 'booking-image'%>
+        <% end %>
+      </div>
+      <%#= booking.spa.name %>
+      <div class="booking-body">
+       <h3><%= booking.massage.name %></h3>
+       <p><%= booking.massage.spa.name.capitalize %></p>
+       <p><%= booking.massage.spa.address %></p>
+      </div>
+      <div class="booking-date text-muted">
+        <%= booking.date.strftime("%e %B %Y") %>
+        <%= booking.time_in.strftime("at %l %p")%>
+      </div>
+
+      <div class="booking-delete">
+        <% if futur %>
+          <!-- Cancel my booking -->
+          <%= link_to booking , method: :delete,
+          class: "btn btn-danger btn-block ", data:{confirm: "Are you sure?"} do %>
+            <i class="fa fa-times"></i> Cancel
+          <% end %>
+        <% else %>
+          <% unless booking.reviewed? %>
+            <button class="btn btn-primary btn-block text-left bnt-lg" data-toggle="modal" data-target="#review">
+              <i class="fa fa-edit"></i> Rate your stay
+            </button>
+          <% else %>
+            <div class="booking-review">
+              <small class="text-muted"><%= booking.content %></small>
+              <p><%= render 'shared/stars', rating: booking.rating.to_f %></p>
+              <!-- <button class="" data-toggle="modal" data-target="#review">
+                <i class="fa fa-edit"></i>
+              </button> -->
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </li>
+    <%=render 'bookings/form_review', booking: booking %>
+  <% end %>
+</ul>
