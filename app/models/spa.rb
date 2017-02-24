@@ -17,4 +17,9 @@ class Spa < ApplicationRecord
   def installations
     self.amenities['installations'].split(';')
   end
+
+  def upd_avg_rating(total_rating, bkings_count)
+      self.avg_rating = total_rating / bkings_count
+      self.save
+  end
 end
