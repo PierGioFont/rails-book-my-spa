@@ -50,13 +50,14 @@
         </div>
         <div class="tab-pane" id="3">
           <div class="row amenities">
-            <div class="col-sm-6">
+            <div class="col-sm-6 reviews-show">
               <ul>
                 <% @spa.bookings.each do |booking| %>
                   <li class="list-unstyled">
-                    <%= booking.rating %>
+                    <p><%= render 'shared/stars', rating: booking.rating.to_f %></p>
                     <p><%= booking.content %></p>
                   </li>
+                  <hr>
                 <% end %>
               </ul>
             </div>
